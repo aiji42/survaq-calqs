@@ -1,0 +1,15 @@
+---
+import Layout from "../../layouts/Layout.astro";
+export const getStaticPaths = () => {
+  return [
+    { params: { product: "aaaa" } },
+    { params: { product: "bbbb" } },
+    { params: { product: "cccc" } },
+  ];
+};
+const { product } = Astro.params;
+---
+
+<Layout title={product}>
+  <div>this is {product} page</div>
+</Layout>
