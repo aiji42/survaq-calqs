@@ -40,5 +40,9 @@
       "eslint --fix",
       "prettier --write"
     ]
+  },
+  "engines": {
+    "node": ">=16.12",
+    "npm": "prealse use yarn"
   }
 }
