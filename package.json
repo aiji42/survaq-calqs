@@ -7,12 +7,38 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "format": "prettier --write '**/*.{ts,tsx,astro}'",
+    "lint": "eslint './src/**/*.{ts,tsx,astro}' --fix --ignore-path .gitignore",
+    "prepare": "husky install"
   },
   "dependencies": {
     "astro": "^2.0.14"
   },
   "devDependencies": {
-    "prettier": "^2.8.4"
+    "@typescript-eslint/eslint-plugin": "^5.53.0",
+    "@typescript-eslint/parser": "^5.53.0",
+    "eslint": "^8.34.0",
+    "eslint-plugin-astro": "^0.23.0",
+    "eslint-plugin-import": "^2.27.5",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.2",
+    "prettier": "^2.8.4",
+    "prettier-plugin-astro": "^0.8.0"
+  },
+  "prettier": {
+    "semi": false,
+    "arrowParens": "always",
+    "printWidth": 120,
+    "tabWidth": 2,
+    "useTabs": false,
+    "singleQuote": true,
+    "proseWrap": "preserve"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx,astro}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   }
 }
