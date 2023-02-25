@@ -11,6 +11,8 @@ module.exports = {
   },
   plugins: ['@typescript-eslint', 'import'],
   rules: {
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': ['error'],
     '@typescript-eslint/consistent-type-imports': [
       2,
       {
