@@ -1,22 +1,11 @@
 ---
-declare global {
-  interface Window {
-    ShopifyCustomAttribute?: { key: string; value: string }[]
-    ShopifyBuy: {
-      buildClient: (arg: { domain: string; storefrontAccessToken: string }) => unknown
-      UI: {
-        init: (arg: unknown) => {
-          createComponent: (name: string, options: unknown) => void
-        }
-      }
-    }
-  }
-}
-
+import AddToCart from '../../components/AddToCart.astro'
 import Layout from '../../layouts/Layout.astro'
+
 export const getStaticPaths = () => {
   return [{ params: { product: 'aaaa' } }, { params: { product: 'bbbb' } }, { params: { product: 'cccc' } }]
 }
+
 const { product } = Astro.params
 const productId = 7110153404621 // TODO: 出し分け
 const accessToken = import.meta.env.STORE_FRONT_ACCESS_TOKEN ?? ''
@@ -24,87 +13,5 @@ const accessToken = import.meta.env.STORE_FRONT_ACCESS_TOKEN ?? ''
 
 <Layout title={product}>
   <div>this is {product}({productId}) page</div>
-  <div id="buy-button"></div>
-  <div data-product-id={productId} data-access-token={accessToken} id="inline-values"></div>
+  <AddToCart productId={productId} accessToken={accessToken} />
 </Layout>
-<script src="/buybutton.js" is:inline></script>
-<script>
-  const { productId, accessToken } = document.getElementById('inline-values').dataset
-  const client = window.ShopifyBuy.buildClient({
-    domain: 'survaq.myshopify.com',
-    storefrontAccessToken: accessToken,
-  })
-  window.ShopifyBuy.UI.init(client).createComponent('product', {
-    id: productId,
-    node: document.getElementById('buy-button'),
-    moneyFormat: '%C2%A5%7B%7Bamount_no_decimals%7D%7D',
-    options: {
-      product: {
-        // iframe: false,
-        contents: {
-          img: false,
-          title: false,
-          price: false,
-        },
-        text: {
-          button: 'カートに追加',
-          unavailable: 'お取り扱いできません',
-        },
-        events: {
-          afterRender: () => {
-            // TODO:
-          },
-          addVariantToCart: () => {
-            // TODO:
-          },
-        },
-      },
-      cart: {
-        // iframe: false,
-        styles: {
-          button: {
-            'font-size': '17px',
-            'padding-top': '16.5px',
-            'padding-bottom': '16.5px',
-            ':hover': {
-              'background-color': '#a4514e',
-            },
-            'background-color': '#b65a57',
-            ':focus': {
-              'background-color': '#a4514e',
-            },
-          },
-        },
-        text: {
-          title: 'カートリスト',
-          total: '小計',
-          empty: 'カートに何も入っていません',
-          notice: '送料無料 - 期間限定割引 適用済み',
-          button: '購入手続きへ進む',
-        },
-        popup: false,
-        events: {
-          afterInit: () => {
-            // TODO:
-          },
-        },
-      },
-      toggle: {
-        styles: {
-          toggle: {
-            'background-color': '#b65a57',
-            ':hover': {
-              'background-color': '#a4514e',
-            },
-            ':focus': {
-              'background-color': '#a4514e',
-            },
-          },
-          count: {
-            'font-size': '17px',
-          },
-        },
-      },
-    },
-  })
-</script>
