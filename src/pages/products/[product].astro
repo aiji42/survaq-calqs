@@ -3,7 +3,12 @@ import AddToCart from '../../components/AddToCart.astro'
 import Layout from '../../layouts/Layout.astro'
 
 export const getStaticPaths = () => {
-  return [{ params: { product: 'aaaa' } }, { params: { product: 'bbbb' } }, { params: { product: 'cccc' } }]
+  return [
+    { params: { product: 'pillow-a' } },
+    { params: { product: 'pillow-b' } },
+    { params: { product: 'pillow-c' } },
+    { params: { product: 'pillow-d' } },
+  ]
 }
 
 const { product } = Astro.params

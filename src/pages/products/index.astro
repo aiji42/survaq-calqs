@@ -1,6 +1,46 @@
-<div>
+---
+import ProductCard from '../../components/ProductCard.astro'
+import Layout from '../../layouts/Layout.astro'
+
+const products = [
+  {
+    title: 'まくらA',
+    code: 'pillow-a',
+    price: 10000,
+    image: '/pillow-dummy.png',
+  },
+  {
+    title: 'まくらB',
+    code: 'pillow-b',
+    price: 9999,
+    image: '/pillow-dummy.png',
+  },
+  {
+    title: 'まくらC',
+    code: 'pillow-c',
+    price: 12000,
+    image: '/pillow-dummy.png',
+  },
+  {
+    title: 'まくらD',
+    code: 'pillow-d',
+    price: 8000,
+    image: '/pillow-dummy.png',
+  },
+]
+---
+
+<Layout title="製品一覧">
   <h1>Products</h1>
-  <a href="/products/aaaa">aaaa</a>
-  <a href="/products/bbbb">bbbb</a>
-  <a href="/products/cccc">cccc</a>
-</div>
+  <ul class="link-card-grid">
+    {products.map((product) => <ProductCard {...product} />)}
+  </ul>
+</Layout>
+<style>
+  .link-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+    gap: 1rem;
+    padding: 0;
+  }
+</style>

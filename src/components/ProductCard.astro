@@ -1,21 +1,22 @@
 ---
 export interface Props {
+  image: string
   title: string
-  body: string
-  href: string
+  code: string
+  price: number
 }
 
-const { href, title, body } = Astro.props
+const { image, title, price, code } = Astro.props
 ---
 
 <li class="link-card">
-  <a href={href}>
+  <a href={`/products/${code}`}>
+    <img src={image} alt={title} />
     <h2>
       {title}
-      <span>&rarr;</span>
     </h2>
     <p>
-      {body}
+      ￥{price.toLocaleString()} ~
     </p>
   </a>
 </li>
