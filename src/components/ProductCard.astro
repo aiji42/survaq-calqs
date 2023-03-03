@@ -1,10 +1,6 @@
 ---
-export interface Props {
-  image: string
-  title: string
-  code: string
-  price: number
-}
+import type { products } from '../constants/products'
+export type Props = Pick<(typeof products)[number], 'title' | 'price' | 'code' | 'image'>
 
 const { image, title, price, code } = Astro.props
 ---

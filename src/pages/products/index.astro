@@ -1,33 +1,7 @@
 ---
 import ProductCard from '../../components/ProductCard.astro'
+import { products } from '../../constants/products'
 import Layout from '../../layouts/Layout.astro'
-
-const products = [
-  {
-    title: 'まくらA',
-    code: 'pillow-a',
-    price: 10000,
-    image: '/pillow-dummy.png',
-  },
-  {
-    title: 'まくらB',
-    code: 'pillow-b',
-    price: 9999,
-    image: '/pillow-dummy.png',
-  },
-  {
-    title: 'まくらC',
-    code: 'pillow-c',
-    price: 12000,
-    image: '/pillow-dummy.png',
-  },
-  {
-    title: 'まくらD',
-    code: 'pillow-d',
-    price: 8000,
-    image: '/pillow-dummy.png',
-  },
-]
 ---
 
 <Layout title="製品一覧">

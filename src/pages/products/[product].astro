@@ -1,14 +1,10 @@
 ---
 import AddToCart from '../../components/AddToCart.astro'
+import { products } from '../../constants/products'
 import Layout from '../../layouts/Layout.astro'
 
 export const getStaticPaths = () => {
-  return [
-    { params: { product: 'pillow-a' } },
-    { params: { product: 'pillow-b' } },
-    { params: { product: 'pillow-c' } },
-    { params: { product: 'pillow-d' } },
-  ]
+  return products.map(({ code }) => ({ params: { product: code } }))
 }
 
 const { product } = Astro.params
