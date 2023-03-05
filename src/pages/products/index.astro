@@ -1,10 +1,11 @@
 ---
 import ProductCard from '../../components/ProductCard.astro'
 import { products } from '../../constants/products'
+import { productsPage } from '../../constants/productsPage'
 import Layout from '../../layouts/Layout.astro'
 ---
 
-<Layout title="製品一覧">
+<Layout {...productsPage.pageMeta}>
   <h1>Products</h1>
   <ul class="link-card-grid">
     {products.map((product) => <ProductCard {...product} />)}

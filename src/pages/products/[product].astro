@@ -12,7 +12,7 @@ const product = products.find((product) => product.code === code)
 const accessToken = import.meta.env.STORE_FRONT_ACCESS_TOKEN ?? ''
 ---
 
-<Layout title={product.pageMeta.title}>
+<Layout {...product.pageMeta}>
   <div>this is {product.title} page</div>
   <div>{product.description}</div>
   <AddToCart productId={product.shopifyId} accessToken={accessToken} />

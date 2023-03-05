@@ -1,8 +1,9 @@
 ---
+import { topPage } from '../constants/topPage'
 import Layout from '../layouts/Layout.astro'
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout {...topPage.pageMeta}>
   <main>
     <h1>Welcome to <span class="text-gradient">Astro</span></h1>
     <p class="instructions">
