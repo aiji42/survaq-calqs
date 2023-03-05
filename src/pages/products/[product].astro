@@ -7,12 +7,13 @@ export const getStaticPaths = () => {
   return products.map(({ code }) => ({ params: { product: code } }))
 }
 
-const { product } = Astro.params
-const productId = 7110153404621 // TODO: 出し分け
+const { product: code } = Astro.params
+const product = products.find((product) => product.code === code)
 const accessToken = import.meta.env.STORE_FRONT_ACCESS_TOKEN ?? ''
 ---
 
-<Layout title={product}>
-  <div>this is {product}({productId}) page</div>
-  <AddToCart productId={productId} accessToken={accessToken} />
+<Layout title={product.pageMeta.title}>
+  <div>this is {product.title} page</div>
+  <div>{product.description}</div>
+  <AddToCart productId={product.shopifyId} accessToken={accessToken} />
 </Layout>

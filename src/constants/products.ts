@@ -5,6 +5,13 @@ export const products = [
     price: 10000,
     image: '/pillow-dummy.png',
     description: '',
+    shopifyId: 7110153404621,
+    pageMeta: {
+      // metaタグ用のデータ
+      title: '',
+      description: '',
+      ogpImage: '',
+    },
   },
   {
     title: 'まくらB',
@@ -12,6 +19,12 @@ export const products = [
     price: 9999,
     image: '/pillow-dummy.png',
     description: '',
+    shopifyId: 7110153404621,
+    pageMeta: {
+      title: '',
+      description: '',
+      ogpImage: '',
+    },
   },
   {
     title: 'まくらC',
@@ -19,6 +32,12 @@ export const products = [
     price: 12000,
     image: '/pillow-dummy.png',
     description: '',
+    shopifyId: 7110153404621,
+    pageMeta: {
+      title: '',
+      description: '',
+      ogpImage: '',
+    },
   },
   {
     title: 'まくらD',
@@ -26,5 +45,11 @@ export const products = [
     price: 8000,
     image: '/pillow-dummy.png',
     description: '',
+    shopifyId: 7110153404621,
+    pageMeta: {
+      title: '',
+      description: '',
+      ogpImage: '',
+    },
   },
 ] as const
