@@ -5,7 +5,7 @@ export const products = [
     price: 10000,
     image: '/pillow-dummy.png',
     description: '',
-    shopifyId: 7110153404621,
+    shopifyId: 7095694065869,
     pageMeta: {
       title: '【CALQS公式】首と肩がホッとする枕（首を40度で温める枕）枕・寝具の通販サイト | CALQS（カルクス）',
       description:
@@ -19,7 +19,7 @@ export const products = [
     price: 9999,
     image: '/pillow-dummy.png',
     description: '',
-    shopifyId: 7110153404621,
+    shopifyId: 6985115205837,
     pageMeta: {
       title:
         '【CALQS公式】首と肩のことだけを考えたダブル枕（首を40度で温める枕）枕・寝具の通販サイト | CALQS（カルクス）',
@@ -34,7 +34,7 @@ export const products = [
     price: 12000,
     image: '/pillow-dummy.png',
     description: '',
-    shopifyId: 7110153404621,
+    shopifyId: 7001442484429,
     pageMeta: {
       title:
         '【CALQS公式】美肌まくら Furez～フレズ～（枕の摩擦から素肌を守る）　商品情報　枕・寝具の通販サイト | CALQS（カルクス）',
