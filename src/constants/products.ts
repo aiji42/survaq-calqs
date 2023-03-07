@@ -1,6 +1,6 @@
 export const products = [
   {
-    title: 'ホット枕',
+    title: '首と肩がホッとする枕',
     code: 'neckwarmpillow',
     price: 10000,
     image: '/pillow-dummy.png',
@@ -14,7 +14,7 @@ export const products = [
     },
   },
   {
-    title: 'ダブル枕',
+    title: '首と肩のことだけを考えたダブル枕',
     code: 'doublepillow',
     price: 9999,
     image: '/pillow-dummy.png',
@@ -29,7 +29,7 @@ export const products = [
     },
   },
   {
-    title: '美肌枕',
+    title: '美肌まくら Furez～フレズ～',
     code: 'furez',
     price: 12000,
     image: '/pillow-dummy.png',
@@ -44,7 +44,7 @@ export const products = [
     },
   },
   {
-    title: '腰枕',
+    title: '腰がホッとする枕',
     code: 'lumberwarmpillow',
     price: 8000,
     image: '/pillow-dummy.png',
