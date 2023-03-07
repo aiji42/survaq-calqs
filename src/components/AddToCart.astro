@@ -1,4 +1,5 @@
 ---
+import { getVariantsData } from '../libs/getVariantsData'
 declare global {
   interface Window {
     ShopifyCustomAttribute?: { key: string; value: string }[]
@@ -18,6 +19,9 @@ export interface Props {
 }
 
 const { productId, accessToken } = Astro.props
+const data = await getVariantsData(productId)
+
+console.log(data)
 ---
 
 <div id="buy-button" data-product-id={productId} data-access-token={accessToken}></div>

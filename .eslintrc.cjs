@@ -9,6 +9,7 @@ module.exports = {
   },
   globals: {
     astroHTML: true,
+    fetch: false,
   },
   plugins: ['@typescript-eslint', 'import'],
   rules: {
