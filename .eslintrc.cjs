@@ -1,5 +1,5 @@
 module.exports = {
-  ignorePatterns: ['*.d.ts'],
+  ignorePatterns: ['*.d.ts', '*.tsx'],
   extends: ['eslint:recommended', 'plugin:import/typescript', 'plugin:astro/recommended'],
   parserOptions: {
     extraFileExtensions: ['.astro'],
