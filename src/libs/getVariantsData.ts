@@ -1,4 +1,4 @@
-type Schedule = {
+export type Schedule = {
   year: number
   month: number
   term: 'early' | 'middle' | 'late'
@@ -8,7 +8,7 @@ type Schedule = {
   subText: string
 }
 
-type Variant = {
+export type Variant = {
   variantId: string
   variantName: string
   skuLabel: string | null
@@ -22,7 +22,7 @@ type Variant = {
   schedule: Omit<Schedule, 'texts'> | null
 }
 
-type ProductData = {
+export type ProductData = {
   variants: Array<Variant>
   schedule: Schedule
 }

@@ -1,4 +1,6 @@
 import { useEffect } from 'react'
+import { latest, useSkuSelectors } from '../hooks/useSkuSelector'
+import type { Schedule, Variant } from '../libs/getVariantsData'
 
 declare global {
   interface Window {
@@ -22,12 +24,55 @@ type CartObject = {
   model: { webUrl: string }
 }
 
-const AddToCartReact = ({ productId, accessToken }: { productId: string; accessToken: string }) => {
-  const loader = makeOnLoad({ productId, accessToken })
+type CustomAttributes = { key: string; value: string }[]
 
+type ProductObject = {
+  selectedVariantTrackingInfo: { id: string }
+  setCustomAttributes: (arg: CustomAttributes) => void
+}
+
+const AddToCartReact = ({
+  productId,
+  accessToken,
+  productSchedule,
+  productVariants,
+}: {
+  productId: string
+  accessToken: string
+  productSchedule: Schedule
+  productVariants: Variant[]
+}) => {
+  console.log(productSchedule)
+  const { selects, variant, handleSku } = useSkuSelectors()
+  const schedule = latest([
+    productSchedule,
+    variant?.schedule ?? null,
+    ...selects.map(({ selected: { schedule } }) => schedule),
+  ])
+
+  const loader = makeOnLoad({ productId, accessToken, handleSku, variants: productVariants })
   useEffect(() => {
     loader()
   }, [])
+
+  if (typeof window !== 'undefined')
+    window.ShopifyCustomAttribute = [
+      ...selects.map(({ label, selected }) => ({
+        key: label,
+        value: selected.name,
+      })),
+      ...Array.from(new URL(location.href).searchParams).reduce<CustomAttributes>((res, [key, value]) => {
+        return key.startsWith('utm_') ? [...res, { key: `_${key}`, value }] : res
+      }, []),
+      {
+        key: '_source',
+        value: `${location.origin}${location.pathname}`,
+      },
+      {
+        key: '配送予定',
+        value: `${schedule.text}(${schedule.subText})`,
+      },
+    ]
 
   return <div id="buy-button" />
 }
@@ -35,7 +80,17 @@ const AddToCartReact = ({ productId, accessToken }: { productId: string; accessT
 export default AddToCartReact
 
 const makeOnLoad =
-  ({ productId, accessToken }: { productId: string; accessToken: string }) =>
+  ({
+    productId,
+    accessToken,
+    handleSku,
+    variants,
+  }: {
+    productId: string
+    accessToken: string
+    handleSku: ReturnType<typeof useSkuSelectors>['handleSku']
+    variants: Variant[]
+  }) =>
   () => {
     const client = window.ShopifyBuy.buildClient({
       domain: 'survaq.myshopify.com',
@@ -58,11 +113,17 @@ const makeOnLoad =
             unavailable: 'お取り扱いできません',
           },
           events: {
-            afterRender: () => {
-              // TODO:
+            afterRender: (product: ProductObject) => {
+              handleSku({
+                type: 'reset',
+                variant: variants.find(
+                  ({ variantId }) =>
+                    variantId === product.selectedVariantTrackingInfo.id.replace('gid://shopify/ProductVariant/', '')
+                ),
+              })
             },
-            addVariantToCart: () => {
-              // TODO:
+            addVariantToCart: (product: ProductObject) => {
+              if (window.ShopifyCustomAttribute) product.setCustomAttributes(window.ShopifyCustomAttribute)
             },
           },
           styles: {

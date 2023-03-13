@@ -9,9 +9,13 @@ export interface Props {
 
 const { productId, accessToken } = Astro.props
 const data = await getVariantsData(productId)
-
-console.log(data)
 ---
 
 <script src="/buybutton.js" is:inline></script>
-<AddToCartReact productId={productId} accessToken={accessToken} client:load />
+<AddToCartReact
+  productId={productId}
+  accessToken={accessToken}
+  schedule={data.schedule}
+  variants={data.variants}
+  client:load
+/>
