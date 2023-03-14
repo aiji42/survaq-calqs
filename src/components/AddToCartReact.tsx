@@ -1,5 +1,5 @@
-import { useEffect } from 'react'
-import { latest, useSkuSelectors } from '../hooks/useSkuSelector'
+import { useEffect, useRef } from 'react'
+import { useSchedule } from '../hooks/useSchedule'
 import type { Schedule, Variant } from '../libs/getVariantsData'
 
 declare global {
@@ -35,31 +35,26 @@ const AddToCartReact = ({
   productId,
   accessToken,
   productSchedule,
-  productVariants,
+  productVariants: variants,
 }: {
   productId: string
   accessToken: string
   productSchedule: Schedule
   productVariants: Variant[]
 }) => {
-  const { selects, variant, handleSku } = useSkuSelectors()
-  const schedule = latest([
-    productSchedule,
-    variant?.schedule ?? null,
-    ...selects.map(({ selected: { schedule } }) => schedule),
-  ])
+  const { schedule, handleVariant } = useSchedule(productSchedule)
 
-  const loader = makeOnLoad({ productId, accessToken, handleSku, variants: productVariants })
+  const buyButtonLoaded = useRef(false)
   useEffect(() => {
-    loader()
-  }, [])
+    if (!buyButtonLoaded.current) {
+      const loader = makeOnLoad({ productId, accessToken, handleVariant, variants })
+      loader()
+      buyButtonLoaded.current = true
+    }
+  }, [productId, accessToken, handleVariant, variants])
 
   if (typeof window !== 'undefined')
     window.ShopifyCustomAttribute = [
-      ...selects.map(({ label, selected }) => ({
-        key: label,
-        value: selected.name,
-      })),
       ...Array.from(new URL(location.href).searchParams).reduce<CustomAttributes>((res, [key, value]) => {
         return key.startsWith('utm_') ? [...res, { key: `_${key}`, value }] : res
       }, []),
@@ -82,12 +77,12 @@ const makeOnLoad =
   ({
     productId,
     accessToken,
-    handleSku,
+    handleVariant,
     variants,
   }: {
     productId: string
     accessToken: string
-    handleSku: ReturnType<typeof useSkuSelectors>['handleSku']
+    handleVariant: ReturnType<typeof useSchedule>['handleVariant']
     variants: Variant[]
   }) =>
   () => {
@@ -113,13 +108,12 @@ const makeOnLoad =
           },
           events: {
             afterRender: (product: ProductObject) => {
-              handleSku({
-                type: 'reset',
-                variant: variants.find(
+              handleVariant(
+                variants.find(
                   ({ variantId }) =>
                     variantId === product.selectedVariantTrackingInfo.id.replace('gid://shopify/ProductVariant/', '')
-                ),
-              })
+                )
+              )
             },
             addVariantToCart: (product: ProductObject) => {
               if (window.ShopifyCustomAttribute) product.setCustomAttributes(window.ShopifyCustomAttribute)
