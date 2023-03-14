@@ -15,7 +15,7 @@ const data = await getVariantsData(productId)
 <AddToCartReact
   productId={productId}
   accessToken={accessToken}
-  schedule={data.schedule}
-  variants={data.variants}
+  productSchedule={data.schedule}
+  productVariants={data.variants}
   client:load
 />

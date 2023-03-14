@@ -42,7 +42,6 @@ const AddToCartReact = ({
   productSchedule: Schedule
   productVariants: Variant[]
 }) => {
-  console.log(productSchedule)
   const { selects, variant, handleSku } = useSkuSelectors()
   const schedule = latest([
     productSchedule,
