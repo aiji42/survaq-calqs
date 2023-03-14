@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
-import { useSchedule } from '../hooks/useSchedule'
-import type { Schedule, Variant } from '../libs/getVariantsData'
+import { useSchedule } from './hooks/useSchedule'
+import type { Schedule, Variant } from '../../libs/getVariantsData'
 
 declare global {
   interface Window {
