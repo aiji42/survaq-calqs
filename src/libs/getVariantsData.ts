@@ -28,8 +28,7 @@ export type ProductData = {
 }
 
 export const getVariantsData = async (productId: string | number) => {
-  // FIXME: use env
-  const res = await fetch(`https://api.survaq.com/products/${productId}/supabase`)
+  const res = await fetch(`${import.meta.env.SURVAQ_API_ORIGIN}/products/${productId}/supabase`)
   const json: ProductData = await res.json()
 
   return json
