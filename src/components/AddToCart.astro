@@ -13,7 +13,7 @@ const data = await getVariantsData(productId)
 
 <script src="/buybutton.js" is:inline></script>
 <AddToCartReact
-  productId={productId}
+  productId={String(productId)}
   accessToken={accessToken}
   productSchedule={data.schedule}
   productVariants={data.variants}

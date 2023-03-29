@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import type { Schedule, Variant } from '../libs/getVariantsData'
+import type { Schedule, Variant } from '../../../libs/getVariantsData'
 
 export const useSchedule = (baseSchedule: Schedule) => {
   const [variant, handleVariant] = useState<Variant | undefined>(undefined)

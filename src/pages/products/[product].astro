@@ -8,7 +8,7 @@ export const getStaticPaths = () => {
 }
 
 const { product: code } = Astro.params
-const product = products.find((product) => product.code === code)
+const product = products.find((product) => product.code === code)!
 const accessToken = import.meta.env.STORE_FRONT_ACCESS_TOKEN ?? ''
 ---
 
