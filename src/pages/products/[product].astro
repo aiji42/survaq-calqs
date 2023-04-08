@@ -2,7 +2,7 @@
 import AddToCart from '../../components/AddToCart.astro'
 import Footer from '../../components/Footer.astro'
 import Header from '../../components/Header.astro'
-import { Carousel } from '../../components/react/Carousel.js'
+import { Carousel } from '../../components/react/Carousel'
 import { products } from '../../constants/products'
 import Layout from '../../layouts/Layout.astro'
 
@@ -17,10 +17,10 @@ const accessToken = import.meta.env.STORE_FRONT_ACCESS_TOKEN ?? ''
 
 <Layout {...product.pageMeta}>
   <Header />
-  <section class="root">
+  <section class="section">
     <div>
-      <div class="img">
-        <Carousel client:load />
+      <div class="carousel">
+        <Carousel client:only="react" />
       </div>
       <p class="caution">
         ※首と肩がホッとする枕は株式会社SurvaQの販売する商品です。「カートに追加」「購入手続きへ進む」をクリックするとSurvaQ公式ショップの購入ページへ遷移いたします。
@@ -36,7 +36,7 @@ const accessToken = import.meta.env.STORE_FRONT_ACCESS_TOKEN ?? ''
   <Footer />
 </Layout>
 <style>
-  .root {
+  .section {
     padding: 120px;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -60,9 +60,9 @@ const accessToken = import.meta.env.STORE_FRONT_ACCESS_TOKEN ?? ''
     line-height: 2;
     margin-bottom: 32px;
   }
-  .img {
+  .carousel {
     width: 100%;
-    margin-bottom: 12px;
+    height: 580px;
   }
   .caution {
     font-size: 12px;
