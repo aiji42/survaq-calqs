@@ -1,0 +1,60 @@
+---
+---
+
+<header class="header">
+  <a href="/">
+    <img src="/logo_black.svg" class="header-logo" alt="CALQS" />
+  </a>
+  <a class="header-link header-link-back" href="/products"><span>PRODUCT</span></a>
+</header>
+<style>
+  .header {
+    width: 100%;
+    height: 90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    border-bottom: 1px solid var(--gray200);
+  }
+  .header-logo {
+    width: 100px;
+  }
+  .header-link {
+    position: absolute;
+    top: 23px;
+    right: 24px;
+    padding: 8px 32px;
+    border: 1px solid var(--black);
+    border-radius: 40px;
+    letter-spacing: 2px;
+    text-decoration: none;
+    color: var(--black);
+    overflow: hidden;
+  }
+  .header-link:hover {
+    color: var(--white);
+  }
+  .header-link span {
+    z-index: 3;
+    position: relative;
+  }
+
+  .header-link-back::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    background: var(--black);
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.8, 0, 0.2, 1) 0s;
+    transform: scale(0, 1);
+    transform-origin: right top;
+  }
+  .header-link-back:hover::before {
+    transform-origin: left top;
+    transform: scale(1, 1);
+  }
+</style>
