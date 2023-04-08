@@ -1,4 +1,6 @@
 ---
+import Footer from '../../components/Footer.astro'
+import Header from '../../components/Header.astro'
 import ProductCard from '../../components/ProductCard.astro'
 import { products } from '../../constants/products'
 import { productsPage } from '../../constants/productsPage'
@@ -6,16 +8,55 @@ import Layout from '../../layouts/Layout.astro'
 ---
 
 <Layout {...productsPage.pageMeta}>
-  <h1>Products</h1>
-  <ul class="link-card-grid">
-    {products.map((product) => <ProductCard {...product} />)}
-  </ul>
+  <Header />
+  <section class="section">
+    <h1 class="h1">PRODUCT<span class="h1-sub">商品一覧</span></h1>
+    <ul class="link-card-grid">
+      {
+        products.map((product) => (
+          <li class="link-card">
+            <ProductCard {...product} />
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+  <Footer />
 </Layout>
 <style>
+  .section {
+    padding: 120px;
+  }
+  .h1 {
+    font-size: 50px;
+    font-weight: normal;
+    letter-spacing: 12px;
+    margin-bottom: 64px;
+    display: flex;
+    align-items: center;
+  }
+  .h1-sub {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    margin-left: 24px;
+  }
+  .h1-sub::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 1px;
+    background-color: var(--black);
+    margin-right: 12px;
+  }
   .link-card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 70px;
     padding: 0;
+    margin: auto;
+  }
+  .link-card {
+    list-style: none;
   }
 </style>

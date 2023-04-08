@@ -1,143 +1,468 @@
 ---
+import Logo from '../components/Logo.astro'
+import { ConceptText } from '../components/react/ConceptText'
+import { FadeInWrapper } from '../components/react/FadeInWrapper'
+import { SlideAppearWrapper } from '../components/react/SlideAppearWrapper'
+import { products } from '../constants/products'
 import { topPage } from '../constants/topPage'
 import Layout from '../layouts/Layout.astro'
 ---
 
 <Layout {...topPage.pageMeta}>
   <main>
-    <section>
-      <h1>CALQS</h1>
+    <section class="hero">
+      <video src="/top/movie_pc.webm" class="hero-img" muted loop autoplay></video>
+      <h1 class="hero-logo"><Logo /></h1>
+      <a class="header-link header-link-back" href="/products"><span>PRODUCT</span></a>
+      <span class="hero-scroll">Scroll</span>
     </section>
-    <section>
-      <h2>カラダを軽く、<br />ココロも軽く。</h2>
-      <p>
+    <section class="concept">
+      <ConceptText client:load />
+      <p class="concept-text">
         私たちCALQS(カルクス)は、岐阜県岐阜市で生まれたリラクゼーションブランドです。
-        「カラダを軽く、ココロも軽く。」をコンセプトに、ヒトのカラダが最も心地よく負担の無い状態に導く為のサポートを行います。
-        また、日常に溶け込むシンプルなプロダクトデザインや洗練された独自機能によりココロも落ち着く環境を整えます。
+        「カラダを軽く、ココロも軽く。」をコンセプトに、ヒトのカラダが最も心地よく負担の無い状態に導く為のサポートを行います。<br
+        />
+        また、日常に溶け込むシンプルなプロダクトデザインや洗練された独自機能によりココロも落ち着く環境を整えます。<br />
         そして、皆様の未来にいつまでも寄り添えるような高品質の製品をお届けします。
       </p>
+      <div class="concept-back">
+        <FadeInWrapper client:load>
+          <img src="/top/concept_back.png" />
+        </FadeInWrapper>
+      </div>
     </section>
-    <section>
-      <h2>カラダとココロを軽くする、3つの願い</h2>
-      <section>
-        <h3>緊張をなくしたい</h3>
-        <p>
-          現代人の多くが悩んでいる「コリ（肩こり、首こり、腰痛等）」の原因の一つである「緊張」。
-          筋肉の緊張も精神の緊張もカラダにコリを与えます。カラダが最もリラックスできる環境をサポートします。
-        </p>
+    <section class="section-gray">
+      <h2 class="h2"><span class="h2-sub">OUR WISH</span>カラダとココロを軽くする、3つの願い</h2>
+      <section class="wish-odd back-1">
+        <FadeInWrapper client:load>
+          <div class="wish-content">
+            <h3 class="h3">緊張をなくしたい</h3>
+            <p>
+              現代人の多くが悩んでいる「コリ（肩こり、首こり、腰痛等）」の原因の一つである「緊張」。
+              筋肉の緊張も精神の緊張もカラダにコリを与えます。カラダが最もリラックスできる環境をサポートします。
+            </p>
+          </div>
+        </FadeInWrapper>
       </section>
-      <section>
-        <h3>冷えをなくしたい</h3>
-        <p>
-          「冷えは万病のもと」と言われますが、古来よりカラダを温める治療法は数多く存在しています。
-          特に高度な発展を遂げた現代において、狩猟時代と比べ筋肉や体温調整機能は衰えています。
-          冷えた体に、優しく心地よい温もりを与えます。
-        </p>
+      <section class="wish-even back-2">
+        <FadeInWrapper client:load>
+          <div class="wish-content">
+            <h3 class="h3">冷えをなくしたい</h3>
+            <p>
+              「冷えは万病のもと」と言われますが、古来よりカラダを温める治療法は数多く存在しています。
+              特に高度な発展を遂げた現代において、狩猟時代と比べ筋肉や体温調整機能は衰えています。
+              冷えた体に、優しく心地よい温もりを与えます。
+            </p>
+          </div>
+        </FadeInWrapper>
       </section>
-      <section>
-        <h3>ストレスをなくしたい</h3>
-        <p>
-          リラックスできる環境を整えるには、細部までこだわらなければなりません。
-          心が落ち着くような触り心地、ずっと使い続けられる耐久性、洗練されたデザインなど、
-          毎日気持ちよく使えて、ストレスフリーな使い心地を提供します。
-        </p>
+      <section class="wish-odd back-3">
+        <FadeInWrapper client:load>
+          <div class="wish-content">
+            <h3 class="h3">ストレスをなくしたい</h3>
+            <p>
+              リラックスできる環境を整えるには、細部までこだわらなければなりません。
+              心が落ち着くような触り心地、ずっと使い続けられる耐久性、洗練されたデザインなど、
+              毎日気持ちよく使えて、ストレスフリーな使い心地を提供します。
+            </p>
+          </div>
+        </FadeInWrapper>
       </section>
     </section>
-    <section>
-      <h2>商品一覧</h2>
-      <section>
-        <h3>首と肩がホッとする枕</h3>
-        <h4>就寝前15分間を『心が温まる時間』に</h4>
-        <p>
-          1日の最後を締めくくる『就寝前15分間』という大切な時間にアプローチ。
-          「首ホッと機能」で、首をじんわ～り心地よい温度で温めます。リラックスできる環境を整えることで、
-          就寝前の15分間を「今日も良い日だった」と思えるような『心が温まる時間』へと昇華させます。
-          また、同時に眠気も誘ってくれ、血行不良が原因の肩こり・首コリにもアプローチしてくれる夢のような枕です。
-        </p>
-      </section>
-      <section>
-        <h3>首と肩のことだけを考えたダブル枕</h3>
-        <h4>常識に縛られず、カラダの負担を最小限に</h4>
-        <p>
-          「どの枕も合わない」という悩みの為に生まれました。
-          高め・低め・硬め、柔らかめ、様々な好みが分かれる枕に対し、高めで硬めサポートピロー（首部）と、
-          低めで柔らかめのヘッドピロー（頭部）という2種類の枕組み合わせることで、首と肩の負担が最小限になる寝姿勢を実現します。
-          また、この形状は寝返りがしやすく、いびきや首シワ対策にもなります。
-        </p>
-      </section>
-      <section>
-        <h3>美肌まくら Furez(フレズ)</h3>
-        <h4>寝ている間も素肌に優しく</h4>
-        <p>
-          ほとんどの方が気づいていませんが、睡眠中は『枕と顔の肌は擦れやすい環境』です。
-          「大切な素肌にとって危険な状況にさらしたくない」という声から生まれた枕です。
-          頬を守るチークポケットと、高品質シルク枕カバーで顔のたるみ、シワの原因になる摩擦を少しでも抑えていつまでも綺麗な素肌を手に入れてください。
-          枕と顔の"摩擦"や、"寝起きの顔の枕跡（寝跡）"が気になる方におすすめの製品です。
-        </p>
-      </section>
-      <a>商品一覧を見る</a>
+    <section class="section-white">
+      <h2 class="h2"><span class="h2-sub">PRODUCTS</span>商品一覧</h2>
+      {
+        products.slice(0, 3).map((product, index) => (
+          <FadeInWrapper client:load>
+            <section class="product">
+              <a href={`/products/${product.code}`} class="product-link">
+                <img src={`/top/product_${index + 1}.png`} class="product-img" loading="lazy" />
+              </a>
+              <div class="product-text">
+                <a href={`/products/${product.code}`}>
+                  <h3 class="product-h3">{product.title}</h3>
+                </a>
+                <h4 class="product-h4">{product.subtitle}</h4>
+                <p class="product-description">{product.description}</p>
+              </div>
+            </section>
+          </FadeInWrapper>
+        ))
+      }
+      <a class="link link-back" href="/products/"><span>商品一覧を見る</span></a>
     </section>
-    <section>
-      <h2>ブランドストーリー</h2>
-      <p>
-        きっかけは肩こりでした。 仕事中毎日同じ体勢を続けることで固まっていくカラダ、
-        体の痛みが毎日続くことでイライラしてしまい疲弊していくココロ、
-        疲れがたまりどんどんと気持ちは暗く沈んでしまいます。 そんな時にふと光明を見つけます。
-        古くなった枕を買い替えたところ肩が少しだけ楽に軽くなったのです。 1日8時間、私たちの頭と首を支えてくれている枕。
-        なんでもいいわけがありません。そこから日本中を、また世界各国の枕を調べつくし、 私たちの製品の第一弾である
-        「首と肩のことだけを考えたダブル枕」にたどり着きました。 是非一度使ってみてください。
-        多くのお客様から喜びの声をたくさん頂いています。 皆様の明るい未来を願っています。
-      </p>
+    <section class="section-gray">
+      <h2 class="h2"><span class="h2-sub">BRAND STORY</span>ブランドストーリー</h2>
+      <div class="brand-story">
+        <p>きっかけは肩こりでした。</p>
+        <p>
+          仕事中毎日同じ体勢を続けることで固まっていくカラダ、<br />
+          体の痛みが毎日続くことでイライラしてしまい疲弊していくココロ、<br />
+          疲れがたまりどんどんと気持ちは暗く沈んでしまいます。<br />
+        </p>
+        <p>
+          そんな時にふと光明を見つけます。<br />
+          古くなった枕を買い替えたところ肩が少しだけ楽に軽くなったのです。
+        </p>
+        <p>
+          1日8時間、私たちの頭と首を支えてくれている枕。<br />
+          なんでもいいわけがありません。<br />
+          そこから日本中を、また世界各国の枕を調べつくし、<br />
+          私たちの製品の第一弾である<br />
+          「首と肩のことだけを考えたダブル枕」にたどり着きました。
+        </p>
+        <p>
+          是非一度使ってみてください。<br />
+          多くのお客様から喜びの声をたくさん頂いています。<br />
+          皆様の明るい未来を願っています。
+        </p>
+      </div>
+      <div class="story-img-1"><SlideAppearWrapper client:load><img src="/top/story_1.png" /></SlideAppearWrapper></div>
+      <div class="story-img-2"><SlideAppearWrapper client:load><img src="/top/story_2.png" /></SlideAppearWrapper></div>
     </section>
   </main>
-  <footer>
-    <p>CALQS</p>
-    <address>株式会社サバキュー〒501-0115<br />岐阜県岐阜市鏡島南2-5-6</address>
-    <ul>
-      <li>プライバシーポリシー</li>
-      <li>利用規約</li>
-    </ul>
-    <p>製品について気になることがあれば お気軽にお問合せください。</p>
-    <p>Tel. 058-207-4505</p>
-    <p>Mail. support@survaq.com</p>
+  <footer class="footer">
+    <div>
+      <p><img src="/logo_black.svg" class="footer-logo" alt="CALQS" loading="lazy" /></p>
+      <address>株式会社サバキュー<br />〒501-0115 岐阜県岐阜市鏡島南2-5-6</address>
+      <ul class="footer-nav">
+        <li>プライバシーポリシー</li>
+        <li>利用規約</li>
+      </ul>
+    </div>
+    <div class="footer-text">
+      <p class="footer-supple">製品について気になることがあれば<br />お気軽にお問合せください。</p>
+      <p>Tel. 058-207-4505</p>
+      <p>Mail. support@survaq.com</p>
+    </div>
   </footer>
 </Layout>
 
 <style>
-  main {
-    max-width: 60ch;
-    padding: 1.5rem;
-    margin: auto;
+  a {
+    color: var(--black);
+    text-decoration: none;
   }
-  h1 {
-    margin: 0;
-    font-size: 3rem;
-    font-weight: 800;
+  .hero {
+    position: relative;
   }
-  .text-gradient {
-    background-image: var(--accent-gradient);
-    background-position: 0%;
-    -webkit-background-clip: text;
-    background-size: 400%;
-    -webkit-text-fill-color: transparent;
+  .hero-img {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
   }
-  .instructions {
-    padding: 1rem;
-    margin: 1rem 0;
-    line-height: 1.6;
-    background-color: white;
-    border: 1px solid rgba(var(--accent), 25%);
-    border-radius: 0.4rem;
+  .hero-logo {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 120px;
   }
-  .instructions code {
-    padding: 0.3em 0.45em;
-    font-size: 0.875em;
+  .header-link {
+    position: absolute;
+    top: 32px;
+    right: 24px;
+    padding: 8px 32px;
+    border: 1px solid var(--black);
+    border-radius: 40px;
+    letter-spacing: 2px;
+    text-decoration: none;
+    color: var(--black);
+    overflow: hidden;
+  }
+  .header-link:hover {
+    color: var(--white);
+  }
+  .header-link span {
+    z-index: 3;
+    position: relative;
+  }
+
+  .header-link-back::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    background: var(--black);
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.8, 0, 0.2, 1) 0s;
+    transform: scale(0, 1);
+    transform-origin: right top;
+  }
+  .header-link-back:hover::before {
+    transform-origin: left top;
+    transform: scale(1, 1);
+  }
+  .hero-scroll {
+    font-size: 16px;
+    writing-mode: vertical-rl;
+    letter-spacing: 4px;
+    font-weight: normal;
+    position: absolute;
+    right: 56px;
+    bottom: 90px;
+  }
+  .hero-scroll::after {
+    content: '';
+    height: 120px;
+    border: 0.5px solid var(--black);
+    display: block;
+    position: absolute;
+    top: 80px;
+    right: 11px;
+    z-index: 1;
+    animation: pathmove 1.4s ease-in-out infinite;
+  }
+  @keyframes pathmove {
+    0% {
+      height: 0;
+      top: 80px;
+      opacity: 0;
+    }
+    30% {
+      height: 60px;
+      opacity: 1;
+    }
+    100% {
+      height: 0;
+      top: 180px;
+      opacity: 0;
+    }
+  }
+  .concept {
+    background-color: var(--white);
+    display: grid;
+    grid-template-columns: 74px 740px;
+    gap: 95px;
+    justify-content: center;
+    padding: 88px 0 72px;
+    position: relative;
+  }
+  .concept-back {
+    position: absolute;
+    right: 80px;
+    bottom: 60px;
+  }
+  .concept-text {
+    position: relative;
+    z-index: 1;
+  }
+  p {
+    font-size: 16px;
+    line-height: 32px;
+    letter-spacing: 2.4px;
+    text-align: justify;
+  }
+  .section-gray {
+    background-color: var(--gray100);
+    padding: 120px;
+    position: relative;
+    /* display: grid;
+    grid-template-columns: 1040px;
+    justify-content: center; */
+  }
+  .section-white {
+    background-color: var(--white);
+    padding: 120px;
+  }
+  .h2 {
+    font-size: 20px;
+    font-weight: normal;
+    letter-spacing: 6px;
+    line-height: 2;
+    margin-bottom: 64px;
+    position: relative;
+  }
+  .h2::before {
+    content: '';
+    border: 0.3px solid var(--black);
+    width: 90px;
+    position: absolute;
+    left: -120px;
+    top: 45px;
+  }
+  .h2-sub {
+    font-size: 14px;
     font-weight: bold;
-    color: rgb(var(--accent));
-    background: rgba(var(--accent), 12%);
-    border-radius: 4px;
+    color: var(--gray300);
+    display: block;
   }
-  .instructions strong {
-    color: rgb(var(--accent));
+  .wish-odd {
+    padding: 40px 120px;
+    margin: 0 -120px;
+  }
+  .wish-even {
+    padding: 40px 120px;
+    margin: 0 -120px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .wish-content {
+    background-color: var(--white);
+    padding: 32px 48px;
+    width: 380px;
+    border-radius: 8px;
+    display: grid;
+    gap: 8px;
+  }
+  .back-1 {
+    background-image: url('/top/wish_1.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .back-2 {
+    background-image: url('/top/wish_2.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .back-3 {
+    background-image: url('/top/wish_3.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .h3 {
+    font-size: 22px;
+    font-weight: normal;
+    letter-spacing: 6px;
+    line-height: 2;
+  }
+  .product {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 64px;
+    margin-bottom: 120px;
+  }
+  .product-h3 {
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 6px;
+    line-height: 2;
+  }
+  .product-h4 {
+    font-size: 20px;
+    font-weight: normal;
+    letter-spacing: 6px;
+    line-height: 2;
+  }
+  .product-text {
+    display: grid;
+    gap: 4px;
+  }
+  .product-link {
+    width: 100%;
+    height: 260px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .product-link:hover img {
+    transform: scale(1.1);
+  }
+  .product-img {
+    width: 100%;
+    transform: scale(1);
+    transition: 0.3s ease-in-out;
+  }
+  .product-description {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  .link {
+    background-color: var(--black);
+    padding: 16px 40px;
+    text-align: center;
+    border-radius: 40px;
+    color: var(--white);
+    max-width: 480px;
+    display: block;
+    margin: auto;
+    letter-spacing: 6px;
+    line-height: 2;
+    position: relative;
+    border: 1px solid var(--black);
+    overflow: hidden;
+  }
+  .link:hover {
+    color: var(--black);
+    border: 1px solid var(--black);
+    z-index: 3;
+  }
+  .link span {
+    z-index: 3;
+    position: relative;
+  }
+
+  .link-back::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    background: var(--white);
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.8, 0, 0.2, 1) 0s;
+    transform: scale(0, 1);
+    transform-origin: right top;
+  }
+  .link-back:hover::before {
+    transform-origin: left top;
+    transform: scale(1, 1);
+  }
+  .brand-story {
+    max-width: 50%;
+  }
+  .brand-story p {
+    margin-bottom: 24px;
+  }
+  .story-img-1 {
+    position: absolute;
+    right: 0;
+    top: -50px;
+    border-radius: 10px 0 0 10px;
+    overflow: hidden;
+  }
+  .story-img-2 {
+    position: absolute;
+    left: 720px;
+    top: 550px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .footer {
+    background-color: var(--white);
+    display: flex;
+    justify-content: space-between;
+    padding: 72px 120px;
+    font-size: 14px;
+    letter-spacing: 6px;
+  }
+  .footer-logo {
+    width: 100px;
+  }
+  .footer address {
+    font-style: normal;
+    margin-top: 24px;
+    line-height: 2;
+  }
+  .footer-nav {
+    list-style-type: none;
+    display: flex;
+    padding: 0;
+    margin-top: 64px;
+  }
+  .footer-nav li:first-of-type {
+    margin-right: 24px;
+    padding-right: 20px;
+    border-right: 1px solid var(--black);
+  }
+  .footer-text p {
+    font-size: 14px;
+    letter-spacing: 6px;
+    line-height: 2;
+    text-align: right;
+  }
+  .footer-supple {
+    margin-bottom: 24px;
   }
 </style>

@@ -1,5 +1,8 @@
 ---
 import AddToCart from '../../components/AddToCart.astro'
+import Footer from '../../components/Footer.astro'
+import Header from '../../components/Header.astro'
+import { Carousel } from '../../components/react/Carousel.js'
 import { products } from '../../constants/products'
 import Layout from '../../layouts/Layout.astro'
 
@@ -10,10 +13,62 @@ export const getStaticPaths = () => {
 const { product: code } = Astro.params
 const product = products.find((product) => product.code === code)!
 const accessToken = import.meta.env.STORE_FRONT_ACCESS_TOKEN ?? ''
+
+if (!product) return null
 ---
 
 <Layout {...product.pageMeta}>
-  <div>this is {product.title} page</div>
-  <div>{product.description}</div>
-  <AddToCart productId={product.shopifyId} accessToken={accessToken} />
+  <Header />
+  <section class="root">
+    <div>
+      <div class="img">
+        <Carousel client:load />
+      </div>
+      <p class="caution">
+        ※首と肩がホッとする枕は株式会社SurvaQの販売する商品です。「カートに追加」「購入手続きへ進む」をクリックするとSurvaQ公式ショップの購入ページへ遷移いたします。
+      </p>
+    </div>
+    <div>
+      <h1 class="h1">{product.title}</h1>
+      <h2 class="h2">{product.subtitle}</h2>
+      <p class="description">{product.description}</p>
+      <AddToCart productId={product.shopifyId} accessToken={accessToken} />
+    </div>
+  </section>
+  <Footer />
 </Layout>
+<style>
+  .root {
+    padding: 120px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+  }
+  .h1 {
+    font-size: 32px;
+    font-weight: normal;
+    letter-spacing: 12px;
+    margin-bottom: 24px;
+  }
+  .h2 {
+    font-size: 20px;
+    font-weight: normal;
+    letter-spacing: 12px;
+    margin-bottom: 32px;
+  }
+  .description {
+    font-size: 16px;
+    letter-spacing: 2px;
+    line-height: 2;
+    margin-bottom: 32px;
+  }
+  .img {
+    width: 100%;
+    margin-bottom: 12px;
+  }
+  .caution {
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-top: 32px;
+  }
+</style>
