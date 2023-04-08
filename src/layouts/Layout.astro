@@ -1,5 +1,6 @@
 ---
 import GTM from '../components/GTM.astro'
+import '../styles/reset.css'
 export interface Props {
   title: string
   description: string
@@ -24,10 +25,14 @@ const { title, description } = Astro.props
       :root {
         --accent: 124, 58, 237;
         --accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
+        --white: #fff;
+        --black: #141414;
+        --gray100: #fafafa;
+        --gray200: #e7e7e7;
+        --gray300: #cacaca;
       }
       html {
-        font-family: system-ui, sans-serif;
-        background-color: #f6f6f6;
+        font-family: 'Avenir Next', Verdana, '游ゴシック体', YuGothic, '游ゴシック', 'Yu Gothic', sans-serif;
       }
       code {
         font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono,
