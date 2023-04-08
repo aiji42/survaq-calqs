@@ -26,9 +26,7 @@ import Layout from '../layouts/Layout.astro'
         そして、皆様の未来にいつまでも寄り添えるような高品質の製品をお届けします。
       </p>
       <div class="concept-back">
-        <FadeInWrapper client:load>
-          <img src="/top/concept_back.png" />
-        </FadeInWrapper>
+        <img src="/top/concept_back.png" loading="lazy" alt="" />
       </div>
     </section>
     <section class="section-gray">
@@ -117,8 +115,12 @@ import Layout from '../layouts/Layout.astro'
           皆様の明るい未来を願っています。
         </p>
       </div>
-      <div class="story-img-1"><SlideAppearWrapper client:load><img src="/top/story_1.png" /></SlideAppearWrapper></div>
-      <div class="story-img-2"><SlideAppearWrapper client:load><img src="/top/story_2.png" /></SlideAppearWrapper></div>
+      <div class="story-img-1">
+        <SlideAppearWrapper client:idle><img src="/top/story_1.png" loading="lazy" alt="" /></SlideAppearWrapper>
+      </div>
+      <div class="story-img-2">
+        <SlideAppearWrapper client:idle><img src="/top/story_2.png" loading="lazy" alt="" /></SlideAppearWrapper>
+      </div>
     </section>
   </main>
   <footer class="footer">
@@ -176,7 +178,6 @@ import Layout from '../layouts/Layout.astro'
     z-index: 3;
     position: relative;
   }
-
   .header-link-back::before {
     content: '';
     position: absolute;
@@ -258,9 +259,6 @@ import Layout from '../layouts/Layout.astro'
     background-color: var(--gray100);
     padding: 120px;
     position: relative;
-    /* display: grid;
-    grid-template-columns: 1040px;
-    justify-content: center; */
   }
   .section-white {
     background-color: var(--white);
