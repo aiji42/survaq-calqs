@@ -3,8 +3,10 @@ export const products = [
     title: '首と肩がホッとする枕',
     code: 'neckwarmpillow',
     price: 10000,
-    image: '/pillow-dummy.png',
-    description: '',
+    image: '/top/product_1.png',
+    subtitle: '就寝前15分間を『心が温まる時間』に',
+    description:
+      'ダブル枕に「首ホッと機能」がつき、首をじんわ～り心地よい温度で温めます。\n1日の最後を締めくくる『就寝前15分間』という大切な時間にアプローチ。\nじんわ～り心地よい温度でリラックスできる環境を整えることで、就寝前の15分間を「今日も良い日だった」と思えるような『心が温まる時間』へと昇華させます。\nまた、同時に眠気も誘ってくれ、血行不良が原因の肩こり・首コリにもアプローチしてくれる夢のような枕です。',
     shopifyId: 7095694065869,
     pageMeta: {
       title: '【CALQS公式】首と肩がホッとする枕（首を40度で温める枕）枕・寝具の通販サイト | CALQS（カルクス）',
@@ -17,8 +19,10 @@ export const products = [
     title: '首と肩のことだけを考えたダブル枕',
     code: 'doublepillow',
     price: 9999,
-    image: '/pillow-dummy.png',
-    description: '',
+    image: '/top/product_2.png',
+    subtitle: '常識に縛られず、カラダの負担を最小限に',
+    description:
+      '「どの枕も合わない」という悩みの為に生まれました。 高め・低め・硬め、柔らかめ、様々な好みが分かれる枕に対し、高めで硬めサポートピロー（首部）と、 低めで柔らかめのヘッドピロー（頭部）という2種類の枕組み合わせることで、首と肩の負担が最小限になる寝姿勢を実現します。 また、この形状は寝返りがしやすく、いびきや首シワ対策にもなります。',
     shopifyId: 6985115205837,
     pageMeta: {
       title:
@@ -32,8 +36,10 @@ export const products = [
     title: '美肌まくら Furez～フレズ～',
     code: 'furez',
     price: 12000,
-    image: '/pillow-dummy.png',
-    description: '',
+    image: '/top/product_3.png',
+    subtitle: '寝ている間も素肌に優しく',
+    description:
+      'ほとんどの方が気づいていませんが、睡眠中は『枕と顔の肌は擦れやすい環境』です。 「大切な素肌にとって危険な状況にさらしたくない」という声から生まれた枕です。 頬を守るチークポケットと、高品質シルク枕カバーで顔のたるみ、シワの原因になる摩擦を少しでも抑えていつまでも綺麗な素肌を手に入れてください。 枕と顔の"摩擦"や、"寝起きの顔の枕跡（寝跡）"が気になる方におすすめの製品です。',
     shopifyId: 7001442484429,
     pageMeta: {
       title:
@@ -47,8 +53,10 @@ export const products = [
     title: '腰がホッとする枕',
     code: 'lumberwarmpillow',
     price: 8000,
-    image: '/pillow-dummy.png',
-    description: '',
+    image: '/top/product_4.png',
+    subtitle: '寝ている間も素肌に優しく',
+    description:
+      '「腰痛持ち」の皆さん、原因特定できていますか？「冷えは万病のもと」とされており、様々な体調不良の原因とされています。ホッとする枕は、腰まわりの様々な悩みにアプローチ。温熱効果により血行の滞りを防ぎ、また理想的なS字カーブを描き腰の負担を最大限に軽減します。',
     shopifyId: 7110153404621,
     pageMeta: {
       title:
