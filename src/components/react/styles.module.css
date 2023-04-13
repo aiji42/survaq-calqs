@@ -1,124 +1,133 @@
 .fadeInContent {
-    opacity: 0;
+  opacity: 0;
 }
 
 .visible {
-    animation-name:fadeUpAnime;
-    animation-duration:1.5s;
-    animation-fill-mode:forwards;
+  animation-name: fadeUpAnime;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
 }
-@keyframes fadeUpAnime{
-    from {
-        opacity: 0;
-        transform: translateY(50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+@keyframes fadeUpAnime {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .concept {
-    font-size: 24px;
-    writing-mode: vertical-rl;
-    letter-spacing: 12px;
-    line-height: 2;
-    font-weight: normal;
+  font-size: 24px;
+  writing-mode: vertical-rl;
+  letter-spacing: 12px;
+  line-height: 2;
+  font-weight: normal;
 }
 .concept_text {
-    opacity: 0;
+  opacity: 0;
 }
 .concept_visible {
-    opacity: 1;
-    transition: opacity 900ms cubic-bezier(.445,.05,.55,.95);
+  opacity: 1;
+  transition: opacity 900ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
 }
 
 .delay_02 {
-    transition-delay: 0.2s;
+  transition-delay: 0.2s;
 }
 
 .delay_03 {
-    transition-delay: 0.3s;
+  transition-delay: 0.3s;
 }
 
 .delay_04 {
-    transition-delay: 0.4s;
+  transition-delay: 0.4s;
 }
 
 .delay_05 {
-    transition-delay: 0.5s;
+  transition-delay: 0.5s;
 }
 
 .appear {
-    opacity: 0;
+  opacity: 0;
 }
 
 .wrapper {
-    animation-name:bgextendAnimeBase;
-    animation-duration:1s;
-    animation-fill-mode:forwards;
-    position: relative;
-    overflow: hidden;/*　はみ出た色要素を隠す　*/
+  animation-name: bgextendAnimeBase;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  position: relative;
+  overflow: hidden; /*　はみ出た色要素を隠す　*/
+  opacity: 0;
+}
+@keyframes bgextendAnimeBase {
+  from {
     opacity: 0;
-}
-@keyframes bgextendAnimeBase{
-    from {
-        opacity:0;
-    }
+  }
 
-    to {
-        opacity:1;  
-    }
-}
-
-.wrapper::before{
-    animation-name:bgLRextendAnime;
-    animation-duration:1s;
-    animation-fill-mode:forwards;
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: var(--gray300);/*伸びる背景色の設定*/
-}
-@keyframes bgLRextendAnime{
-    0% {
-        transform-origin:left;
-        transform:scaleX(0);
-    }
-    50% {
-        transform-origin:left;
-        transform:scaleX(1);
-    }
-    50.001% {
-        transform-origin:right;
-    }
-    100% {
-        transform-origin:right;
-        transform:scaleX(0);
-    }
-}
-
-.inner{
-    animation-name:bgextendAnimeSecond;
-    animation-duration:1s;
-    animation-delay: 1s;
-    animation-fill-mode:forwards;
-    opacity: 0;
-}
-
-@keyframes bgextendAnimeSecond{
-    0% {
-    opacity: 0;
-    }
-    100% {
+  to {
     opacity: 1;
-    }       
+  }
+}
+
+.wrapper::before {
+  animation-name: bgLRextendAnime;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--gray300); /*伸びる背景色の設定*/
+}
+@keyframes bgLRextendAnime {
+  0% {
+    transform-origin: left;
+    transform: scaleX(0);
+  }
+  50% {
+    transform-origin: left;
+    transform: scaleX(1);
+  }
+  50.001% {
+    transform-origin: right;
+  }
+  100% {
+    transform-origin: right;
+    transform: scaleX(0);
+  }
+}
+
+.inner {
+  animation-name: bgextendAnimeSecond;
+  animation-duration: 1s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+@keyframes bgextendAnimeSecond {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .carousel_img {
-    width: 100%;
-    height: 550px;
-    object-fit: cover;
-    border-radius: 10px;
+  width: 100%;
+  height: 550px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.carousel button:first-of-type {
+  left: 10px;
+  z-index: 1;
+}
+.carousel button:last-of-type {
+  right: 10px;
+  z-index: 1;
 }

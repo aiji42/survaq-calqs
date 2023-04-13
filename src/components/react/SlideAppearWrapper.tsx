@@ -1,6 +1,6 @@
 import type { FC, ReactNode } from 'react'
 import { useInView } from 'react-intersection-observer'
-import styles from './styles.module.css'
+import styles from './SlideAppearWrapper.module.css'
 
 type SlideAppearWrapper = {
   children: ReactNode

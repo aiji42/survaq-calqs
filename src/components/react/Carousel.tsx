@@ -1,7 +1,8 @@
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-import styles from './styles.module.css'
+import styles from './Carousel.module.css'
+import './Carousel.css'
 
 const settings = {
   dots: true,
@@ -14,19 +15,21 @@ const settings = {
 
 export const Carousel = () => {
   return (
-    <Slider {...settings}>
-      <div>
-        <img src="/product/product_1.png" className={styles.carousel_img} />
-      </div>
-      <div>
-        <img src="/product/product_2.png" className={styles.carousel_img} />
-      </div>
-      <div>
-        <img src="/product/product_1.png" className={styles.carousel_img} />
-      </div>
-      <div>
-        <img src="/product/product_2.png" className={styles.carousel_img} />
-      </div>
-    </Slider>
+    <div className={styles.carousel}>
+      <Slider {...settings}>
+        <div>
+          <img src="/product/product_1.png" className={styles.carousel_img} />
+        </div>
+        <div>
+          <img src="/product/product_2.png" className={styles.carousel_img} />
+        </div>
+        <div>
+          <img src="/product/product_1.png" className={styles.carousel_img} />
+        </div>
+        <div>
+          <img src="/product/product_2.png" className={styles.carousel_img} />
+        </div>
+      </Slider>
+    </div>
   )
 }

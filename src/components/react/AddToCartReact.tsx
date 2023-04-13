@@ -120,17 +120,33 @@ const makeOnLoad =
             },
           },
           styles: {
+            prices: {
+              'text-align': 'left',
+            },
+            price: {
+              'font-size': '32px',
+              'font-family': 'Avenir, san-serif',
+              color: '#141414',
+            },
+            buttonWrapper: {
+              'margin-top': '32px',
+            },
             button: {
-              'font-size': '17px',
+              'font-size': '16px',
+              width: '100%',
+              'max-width': '375px',
               'padding-top': '16.5px',
               'padding-bottom': '16.5px',
+              transition: 'all ease-in-out 0.5s',
+              'background-color': '#141414',
               ':hover': {
-                'background-color': '#a4514e',
+                opacity: '0.7',
+                'background-color': '#141414',
               },
-              'background-color': '#b65a57',
               ':focus': {
-                'background-color': '#a4514e',
+                'background-color': '#141414',
               },
+              'border-radius': '40px',
             },
           },
         },
@@ -141,12 +157,14 @@ const makeOnLoad =
               'font-size': '17px',
               'padding-top': '16.5px',
               'padding-bottom': '16.5px',
+              'border-radius': '40px',
+              transition: 'all ease-in-out 0.5s',
               ':hover': {
-                'background-color': '#a4514e',
+                opacity: '0.7',
               },
-              'background-color': '#b65a57',
+              'background-color': '#141414',
               ':focus': {
-                'background-color': '#a4514e',
+                'background-color': '#141414',
               },
             },
           },
@@ -173,12 +191,12 @@ const makeOnLoad =
         toggle: {
           styles: {
             toggle: {
-              'background-color': '#b65a57',
+              'background-color': '#141414',
               ':hover': {
-                'background-color': '#a4514e',
+                'background-color': '#141414',
               },
               ':focus': {
-                'background-color': '#a4514e',
+                'background-color': '#141414',
               },
             },
             count: {

@@ -1,8 +1,8 @@
 import { useInView } from 'react-intersection-observer'
-import styles from './styles.module.css'
+import styles from './ConceptText.module.css'
 
 export const ConceptText = () => {
-  const { ref, inView } = useInView({ triggerOnce: true })
+  const { ref, inView } = useInView({ triggerOnce: true, rootMargin: '-100px' })
   return (
     <h2 ref={ref} className={`${styles.concept} ${inView && styles.concept_visible}`}>
       <span className={`${styles.concept_text} ${inView && styles.concept_visible}`}>カ</span>
