@@ -3,9 +3,9 @@
 
 <header class="header">
   <a href="/">
-    <img src="/logo_black.svg" class="header-logo" alt="CALQS" />
+    <img src="/logo_black.svg" class="logo" alt="CALQS" />
   </a>
-  <a class="header-link header-link-back" href="/products"><span>PRODUCT</span></a>
+  <a class="button button-back" href="/products"><span>PRODUCTS</span></a>
 </header>
 <style>
   .header {
@@ -17,35 +17,27 @@
     padding: 0 40px;
     border-bottom: 1px solid var(--gray200);
   }
-  .header-logo {
+  .logo {
     width: 100px;
   }
-  .header-link {
-    position: absolute;
-    top: 23px;
-    right: 24px;
-    padding: 8px 32px;
+  .button {
+    position: relative;
     border: 1px solid var(--black);
     border-radius: 40px;
+    font-size: 14px;
     letter-spacing: 2px;
-    text-decoration: none;
-    color: var(--black);
     overflow: hidden;
+    padding: 8px 24px;
   }
-  .header-link:hover {
+  .button:hover span {
+    position: relative;
     color: var(--white);
   }
-  .header-link span {
-    z-index: 3;
-    position: relative;
-  }
-
-  .header-link-back::before {
+  .button-back::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 2;
     background: var(--black);
     width: 100%;
     height: 100%;
@@ -53,8 +45,21 @@
     transform: scale(0, 1);
     transform-origin: right top;
   }
-  .header-link-back:hover::before {
+  .button-back:hover::before {
     transform-origin: left top;
     transform: scale(1, 1);
+  }
+  @media (max-width: 768px) {
+    .header {
+      height: 60px;
+      padding: 0 16px;
+    }
+    .logo {
+      width: 88px;
+    }
+    .button {
+      font-size: 12px;
+      padding: 4px 16px;
+    }
   }
 </style>

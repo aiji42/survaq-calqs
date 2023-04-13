@@ -1,56 +1,82 @@
 ---
+export type Props = { isLight?: boolean }
+
+const { isLight } = Astro.props
 ---
 
-<footer class="footer">
-  <div>
-    <p><img src="/logo_black.svg" class="footer-logo" alt="CALQS" loading="lazy" /></p>
-    <address>株式会社サバキュー<br />〒501-0115 岐阜県岐阜市鏡島南2-5-6</address>
-    <ul class="footer-nav">
-      <li>プライバシーポリシー</li>
-      <li>利用規約</li>
+<footer class={isLight ? 'light' : 'gray'}>
+  <div class="inner">
+    <div>
+      <p><img src="/logo_black.svg" class="logo" alt="CALQS" loading="lazy" /></p>
+      <address class="address">株式会社サバキュー<br />〒501-0115 岐阜県岐阜市鏡島南2-5-6</address>
+    </div>
+    <div class="contact">
+      <p>製品について気になることがあれば<br />お気軽にお問合せください。</p>
+      <div class="contact-address">
+        <p>Tel. 058-207-4505</p>
+        <p>Mail. support@survaq.com</p>
+      </div>
+    </div>
+    <ul class="nav">
+      <li><a href="https://survaq.com/policies/privacy" target="_blank" no-referrer>プライバシーポリシー</a></li>
+      <li><a href="https://survaq.com/policies/ec-store-terms" target="_blank" no-referrer>利用規約</a></li>
     </ul>
-  </div>
-  <div class="footer-text">
-    <p class="footer-supple">製品について気になることがあれば<br />お気軽にお問合せください。</p>
-    <p>Tel. 058-207-4505</p>
-    <p>Mail. support@survaq.com</p>
   </div>
 </footer>
 <style>
-  .footer {
-    background-color: var(--gray100);
-    display: flex;
-    justify-content: space-between;
-    padding: 72px 120px;
-    font-size: 14px;
-    letter-spacing: 6px;
+  .light {
+    background-color: var(--white);
   }
-  .footer-logo {
+  .gray {
+    background-color: var(--gray100);
+  }
+  .inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 24px;
+    row-gap: 56px;
+    max-width: 1200px;
+    font-size: 14px;
+    line-height: 2;
+    letter-spacing: 4px;
+    padding: 64px 80px;
+    margin: auto;
+  }
+  .logo {
     width: 100px;
   }
-  .footer address {
+  .address {
     font-style: normal;
-    margin-top: 24px;
-    line-height: 2;
+    margin-top: 32px;
   }
-  .footer-nav {
-    list-style-type: none;
+  .nav {
     display: flex;
-    padding: 0;
-    margin-top: 64px;
   }
-  .footer-nav li:first-of-type {
+  .nav li:first-of-type {
     margin-right: 24px;
-    padding-right: 20px;
+    padding-right: 24px;
     border-right: 1px solid var(--black);
   }
-  .footer-text p {
-    font-size: 14px;
-    letter-spacing: 6px;
-    line-height: 2;
+  .nav a:hover {
+    text-decoration: underline;
+    transition: all 0.25s;
+  }
+  .contact {
     text-align: right;
   }
-  .footer-supple {
-    margin-bottom: 24px;
+  .contact-address {
+    margin-top: 24px;
+  }
+  @media (max-width: 768px) {
+    .inner {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      padding: 48px 32px;
+      row-gap: 32px;
+      font-size: 12px;
+    }
+    .contact {
+      text-align: left;
+    }
   }
 </style>

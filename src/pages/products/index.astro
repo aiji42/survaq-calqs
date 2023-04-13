@@ -10,11 +10,11 @@ import Layout from '../../layouts/Layout.astro'
 <Layout {...productsPage.pageMeta}>
   <Header />
   <section class="section">
-    <h1 class="h1">PRODUCT<span class="h1-sub">商品一覧</span></h1>
-    <ul class="link-card-grid">
+    <h1 class="h1">PRODUCTS<span class="h1-sub">商品一覧</span></h1>
+    <ul class="product-list">
       {
         products.map((product) => (
-          <li class="link-card">
+          <li>
             <ProductCard {...product} />
           </li>
         ))
@@ -25,20 +25,21 @@ import Layout from '../../layouts/Layout.astro'
 </Layout>
 <style>
   .section {
-    padding: 120px;
+    max-width: 1200px;
+    padding: 80px 80px 120px;
+    margin: auto;
   }
   .h1 {
-    font-size: 50px;
-    font-weight: normal;
-    letter-spacing: 12px;
-    margin-bottom: 64px;
     display: flex;
     align-items: center;
+    font-size: 50px;
+    letter-spacing: 12px;
+    font-weight: 300;
   }
   .h1-sub {
-    font-size: 14px;
     display: flex;
     align-items: center;
+    font-size: 14px;
     margin-left: 24px;
   }
   .h1-sub::before {
@@ -49,14 +50,27 @@ import Layout from '../../layouts/Layout.astro'
     background-color: var(--black);
     margin-right: 12px;
   }
-  .link-card-grid {
+  .product-list {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 70px;
-    padding: 0;
-    margin: auto;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 64px;
+    margin-top: 80px;
   }
-  .link-card {
-    list-style: none;
+  @media (max-width: 768px) {
+    .section {
+      padding: 32px 32px 72px;
+    }
+    .h1 {
+      font-size: 24px;
+      letter-spacing: 6px;
+    }
+    .h1-sub {
+      font-size: 12px;
+      margin-left: 12px;
+    }
+    .product-list {
+      gap: 56px;
+      margin-top: 56px;
+    }
   }
 </style>

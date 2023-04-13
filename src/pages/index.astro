@@ -1,71 +1,67 @@
 ---
-import Logo from '../components/Logo.astro'
+import Footer from '../components/Footer.astro'
+import Hero from '../components/Hero.astro'
 import { ConceptText } from '../components/react/ConceptText'
 import { FadeInWrapper } from '../components/react/FadeInWrapper'
 import { SlideAppearWrapper } from '../components/react/SlideAppearWrapper'
 import { products } from '../constants/products'
 import { topPage } from '../constants/topPage'
 import Layout from '../layouts/Layout.astro'
+
+const wishes = [
+  {
+    title: '緊張をなくしたい',
+    description:
+      '現代人の多くが悩んでいる「コリ（肩こり、首こり、腰痛等）」の原因の一つである「緊張」。筋肉の緊張も精神の緊張もカラダにコリを与えます。カラダが最もリラックスできる環境をサポートします。',
+  },
+  {
+    title: '冷えをなくしたい',
+    description:
+      '「冷えは万病のもと」と言われ、古来よりカラダを温める治療法は数多く存在しています。特に高度な発展を遂げた現代において、狩猟時代と比べ筋肉や体温調整機能は衰えています。冷えた体に、優しく心地よい温もりを与えます。',
+  },
+  {
+    title: 'ストレスをなくしたい',
+    description:
+      'リラックスできる環境を整えるには、細部までこだわらなければなりません。心が落ち着くような触り心地、ずっと使い続けられる耐久性、洗練されたデザインなど、毎日気持ちよく使えて、ストレスフリーな使い心地を提供します。',
+  },
+]
 ---
 
 <Layout {...topPage.pageMeta}>
   <main>
-    <section class="hero">
-      <video src="/top/movie_pc.webm" class="hero-img" muted loop autoplay></video>
-      <h1 class="hero-logo"><Logo /></h1>
-      <a class="header-link header-link-back" href="/products"><span>PRODUCT</span></a>
-      <span class="hero-scroll">Scroll</span>
-    </section>
+    <Hero />
     <section class="concept">
-      <ConceptText client:load />
-      <p class="concept-text">
-        私たちCALQS(カルクス)は、岐阜県岐阜市で生まれたリラクゼーションブランドです。
-        「カラダを軽く、ココロも軽く。」をコンセプトに、ヒトのカラダが最も心地よく負担の無い状態に導く為のサポートを行います。<br
-        />
-        また、日常に溶け込むシンプルなプロダクトデザインや洗練された独自機能によりココロも落ち着く環境を整えます。<br />
-        そして、皆様の未来にいつまでも寄り添えるような高品質の製品をお届けします。
-      </p>
-      <div class="concept-back">
-        <img src="/top/concept_back.png" loading="lazy" alt="" />
+      <div class="concept-inner">
+        <div class="concept-back">
+          <img src="/top/concept_back.png" loading="lazy" alt="" />
+        </div>
+        <ConceptText client:load />
+        <p class="concept-text">
+          私たちCALQS(カルクス)は、岐阜県岐阜市で生まれたリラクゼーションブランドです。
+          「カラダを軽く、ココロも軽く。」をコンセプトに、ヒトのカラダが最も心地よく負担の無い状態に導く為のサポートを行います。<br
+          />
+          また、日常に溶け込むシンプルなプロダクトデザインや洗練された独自機能によりココロも落ち着く環境を整えます。<br
+          />
+          そして、皆様の未来にいつまでも寄り添えるような高品質の製品をお届けします。
+        </p>
       </div>
     </section>
     <section class="section-gray">
-      <h2 class="h2"><span class="h2-sub">OUR WISH</span>カラダとココロを軽くする、3つの願い</h2>
-      <section class="wish-odd back-1">
-        <FadeInWrapper client:load>
-          <div class="wish-content">
-            <h3 class="h3">緊張をなくしたい</h3>
-            <p>
-              現代人の多くが悩んでいる「コリ（肩こり、首こり、腰痛等）」の原因の一つである「緊張」。
-              筋肉の緊張も精神の緊張もカラダにコリを与えます。カラダが最もリラックスできる環境をサポートします。
-            </p>
-          </div>
-        </FadeInWrapper>
-      </section>
-      <section class="wish-even back-2">
-        <FadeInWrapper client:load>
-          <div class="wish-content">
-            <h3 class="h3">冷えをなくしたい</h3>
-            <p>
-              「冷えは万病のもと」と言われますが、古来よりカラダを温める治療法は数多く存在しています。
-              特に高度な発展を遂げた現代において、狩猟時代と比べ筋肉や体温調整機能は衰えています。
-              冷えた体に、優しく心地よい温もりを与えます。
-            </p>
-          </div>
-        </FadeInWrapper>
-      </section>
-      <section class="wish-odd back-3">
-        <FadeInWrapper client:load>
-          <div class="wish-content">
-            <h3 class="h3">ストレスをなくしたい</h3>
-            <p>
-              リラックスできる環境を整えるには、細部までこだわらなければなりません。
-              心が落ち着くような触り心地、ずっと使い続けられる耐久性、洗練されたデザインなど、
-              毎日気持ちよく使えて、ストレスフリーな使い心地を提供します。
-            </p>
-          </div>
-        </FadeInWrapper>
-      </section>
+      <h2 class="h2"><span class="h2-sub">OUR WISH</span>カラダとココロを軽くする、<br class="sp" />3つの願い</h2>
+      {
+        wishes.map((wish, index) => (
+          <section class:list={['wish-section', `back-${index + 1}`]}>
+            <div class:list={['wish-inner', index === 1 && 'wish-right']}>
+              <FadeInWrapper client:load>
+                <div class="wish-content">
+                  <h3 class="wish-h3">{wish.title}</h3>
+                  <p class="wish-p">{wish.description}</p>
+                </div>
+              </FadeInWrapper>
+            </div>
+          </section>
+        ))
+      }
     </section>
     <section class="section-white">
       <h2 class="h2"><span class="h2-sub">PRODUCTS</span>商品一覧</h2>
@@ -74,7 +70,7 @@ import Layout from '../layouts/Layout.astro'
           <FadeInWrapper client:load>
             <section class="product">
               <a href={`/products/${product.code}`} class="product-link">
-                <img src={`/top/product_${index + 1}.png`} class="product-img" loading="lazy" />
+                <img src={`/top/product_${index + 1}.png`} class="product-img" loading="lazy" alt={product.title} />
               </a>
               <div class="product-text">
                 <a href={`/products/${product.code}`}>
@@ -89,7 +85,7 @@ import Layout from '../layouts/Layout.astro'
       }
       <a class="link link-back" href="/products/"><span>商品一覧を見る</span></a>
     </section>
-    <section class="section-gray">
+    <section class="section-gray brand-story-section">
       <h2 class="h2"><span class="h2-sub">BRAND STORY</span>ブランドストーリー</h2>
       <div class="brand-story">
         <p>きっかけは肩こりでした。</p>
@@ -116,129 +112,31 @@ import Layout from '../layouts/Layout.astro'
         </p>
       </div>
       <div class="story-img-1">
-        <SlideAppearWrapper client:idle><img src="/top/story_1.png" loading="lazy" alt="" /></SlideAppearWrapper>
+        <SlideAppearWrapper client:idle>
+          <img src="/top/story_1.png" loading="lazy" alt="" class="" />
+        </SlideAppearWrapper>
       </div>
       <div class="story-img-2">
         <SlideAppearWrapper client:idle><img src="/top/story_2.png" loading="lazy" alt="" /></SlideAppearWrapper>
       </div>
     </section>
   </main>
-  <footer class="footer">
-    <div>
-      <p><img src="/logo_black.svg" class="footer-logo" alt="CALQS" loading="lazy" /></p>
-      <address>株式会社サバキュー<br />〒501-0115 岐阜県岐阜市鏡島南2-5-6</address>
-      <ul class="footer-nav">
-        <li>プライバシーポリシー</li>
-        <li>利用規約</li>
-      </ul>
-    </div>
-    <div class="footer-text">
-      <p class="footer-supple">製品について気になることがあれば<br />お気軽にお問合せください。</p>
-      <p>Tel. 058-207-4505</p>
-      <p>Mail. support@survaq.com</p>
-    </div>
-  </footer>
+  <Footer isLight />
 </Layout>
 
 <style>
-  a {
-    color: var(--black);
-    text-decoration: none;
-  }
-  .hero {
-    position: relative;
-  }
-  .hero-img {
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-  }
-  .hero-logo {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 120px;
-  }
-  .header-link {
-    position: absolute;
-    top: 32px;
-    right: 24px;
-    padding: 8px 32px;
-    border: 1px solid var(--black);
-    border-radius: 40px;
-    letter-spacing: 2px;
-    text-decoration: none;
-    color: var(--black);
-    overflow: hidden;
-  }
-  .header-link:hover {
-    color: var(--white);
-  }
-  .header-link span {
-    z-index: 3;
-    position: relative;
-  }
-  .header-link-back::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 2;
-    background: var(--black);
-    width: 100%;
-    height: 100%;
-    transition: transform 0.6s cubic-bezier(0.8, 0, 0.2, 1) 0s;
-    transform: scale(0, 1);
-    transform-origin: right top;
-  }
-  .header-link-back:hover::before {
-    transform-origin: left top;
-    transform: scale(1, 1);
-  }
-  .hero-scroll {
-    font-size: 16px;
-    writing-mode: vertical-rl;
-    letter-spacing: 4px;
-    font-weight: normal;
-    position: absolute;
-    right: 56px;
-    bottom: 90px;
-  }
-  .hero-scroll::after {
-    content: '';
-    height: 120px;
-    border: 0.5px solid var(--black);
-    display: block;
-    position: absolute;
-    top: 80px;
-    right: 11px;
-    z-index: 1;
-    animation: pathmove 1.4s ease-in-out infinite;
-  }
-  @keyframes pathmove {
-    0% {
-      height: 0;
-      top: 80px;
-      opacity: 0;
-    }
-    30% {
-      height: 60px;
-      opacity: 1;
-    }
-    100% {
-      height: 0;
-      top: 180px;
-      opacity: 0;
-    }
-  }
   .concept {
     background-color: var(--white);
+  }
+  .concept-inner {
     display: grid;
-    grid-template-columns: 74px 740px;
+    grid-template-columns: 90px minmax(auto, 740px);
     gap: 95px;
     justify-content: center;
-    padding: 88px 0 72px;
+    max-width: 1200px;
     position: relative;
+    padding: 88px 40px 72px;
+    margin: auto;
   }
   .concept-back {
     position: absolute;
@@ -247,12 +145,11 @@ import Layout from '../layouts/Layout.astro'
   }
   .concept-text {
     position: relative;
-    z-index: 1;
   }
   p {
     font-size: 16px;
     line-height: 32px;
-    letter-spacing: 2.4px;
+    letter-spacing: 2px;
     text-align: justify;
   }
   .section-gray {
@@ -282,27 +179,43 @@ import Layout from '../layouts/Layout.astro'
   }
   .h2-sub {
     font-size: 14px;
-    font-weight: bold;
+    font-weight: 500;
     color: var(--gray300);
     display: block;
+    letter-spacing: 2px;
   }
-  .wish-odd {
+
+  .wish-section {
     padding: 40px 120px;
     margin: 0 -120px;
   }
-  .wish-even {
-    padding: 40px 120px;
-    margin: 0 -120px;
+  .wish-inner {
+    max-width: 1200px;
+    margin: auto;
+  }
+  .wish-right {
     display: flex;
     justify-content: flex-end;
   }
   .wish-content {
     background-color: var(--white);
-    padding: 32px 48px;
-    width: 380px;
+    padding: 32px 48px 38px;
+    width: 376px;
     border-radius: 8px;
     display: grid;
     gap: 8px;
+  }
+  .wish-h3 {
+    font-size: 24px;
+    font-weight: normal;
+    letter-spacing: 4px;
+    line-height: 2;
+  }
+  .wish-p {
+    font-size: 14px;
+    line-height: 2;
+    letter-spacing: 2px;
+    text-align: justify;
   }
   .back-1 {
     background-image: url('/top/wish_1.png');
@@ -319,17 +232,14 @@ import Layout from '../layouts/Layout.astro'
     background-repeat: no-repeat;
     background-size: cover;
   }
-  .h3 {
-    font-size: 22px;
-    font-weight: normal;
-    letter-spacing: 6px;
-    line-height: 2;
-  }
+
   .product {
     display: grid;
     grid-template-columns: 340px 1fr;
     gap: 64px;
-    margin-bottom: 120px;
+    max-width: 1200px;
+    margin: 0 auto 120px;
+    align-items: start;
   }
   .product-h3 {
     font-size: 24px;
@@ -345,7 +255,7 @@ import Layout from '../layouts/Layout.astro'
   }
   .product-text {
     display: grid;
-    gap: 4px;
+    gap: 8px;
   }
   .product-link {
     width: 100%;
@@ -364,30 +274,33 @@ import Layout from '../layouts/Layout.astro'
   .product-description {
     white-space: pre-wrap;
     word-wrap: break-word;
+    font-size: 14px;
   }
   .link {
+    display: block;
+    max-width: 480px;
     background-color: var(--black);
-    padding: 16px 40px;
     text-align: center;
     border-radius: 40px;
-    color: var(--white);
-    max-width: 480px;
-    display: block;
-    margin: auto;
     letter-spacing: 6px;
     line-height: 2;
     position: relative;
     border: 1px solid var(--black);
     overflow: hidden;
+    padding: 16px 40px;
+    margin: auto;
+  }
+  .link span {
+    color: var(--white);
   }
   .link:hover {
-    color: var(--black);
     border: 1px solid var(--black);
     z-index: 3;
   }
-  .link span {
+  .link:hover span {
     z-index: 3;
     position: relative;
+    color: var(--black);
   }
 
   .link-back::before {
@@ -419,48 +332,121 @@ import Layout from '../layouts/Layout.astro'
     top: -50px;
     border-radius: 10px 0 0 10px;
     overflow: hidden;
+    width: 500px;
   }
   .story-img-2 {
     position: absolute;
-    left: 720px;
+    left: 750px;
     top: 550px;
     border-radius: 10px;
     overflow: hidden;
+    width: 300px;
   }
-  .footer {
-    background-color: var(--white);
-    display: flex;
-    justify-content: space-between;
-    padding: 72px 120px;
-    font-size: 14px;
-    letter-spacing: 6px;
+  .sp {
+    display: none;
   }
-  .footer-logo {
-    width: 100px;
-  }
-  .footer address {
-    font-style: normal;
-    margin-top: 24px;
-    line-height: 2;
-  }
-  .footer-nav {
-    list-style-type: none;
-    display: flex;
-    padding: 0;
-    margin-top: 64px;
-  }
-  .footer-nav li:first-of-type {
-    margin-right: 24px;
-    padding-right: 20px;
-    border-right: 1px solid var(--black);
-  }
-  .footer-text p {
-    font-size: 14px;
-    letter-spacing: 6px;
-    line-height: 2;
-    text-align: right;
-  }
-  .footer-supple {
-    margin-bottom: 24px;
+  @media (max-width: 660px) {
+    .sp {
+      display: block;
+    }
+    .concept-inner {
+      grid-template-columns: 1fr;
+      gap: 32px;
+      place-items: center;
+    }
+    .concept-back {
+      bottom: 0;
+      top: 140px;
+      right: 46px;
+      width: 280px;
+    }
+    .concept-text {
+      font-size: 14px;
+    }
+    .section-gray {
+      padding: 48px 32px;
+    }
+    .section-white {
+      padding: 48px 32px;
+    }
+    .h2 {
+      font-size: 16px;
+      margin-bottom: 32px;
+    }
+    .h2::before {
+      width: 20px;
+      left: -32px;
+      top: 43px;
+    }
+    .wish-section {
+      padding: 32px;
+      margin: 0 -32px;
+      position: relative;
+    }
+    .wish-inner {
+      position: absolute;
+      top: 200px;
+      width: 311px;
+      right: 50%;
+      transform: translateX(50%);
+    }
+    .wish-content {
+      width: 100%;
+      padding: 32px;
+    }
+    .wish-h3 {
+      font-size: 20px;
+    }
+    .back-1 {
+      background-position: bottom 1px right -60px;
+      height: 300px;
+      margin-bottom: 240px;
+    }
+    .back-2 {
+      background-position: bottom 1px left -100px;
+      height: 300px;
+      margin-bottom: 240px;
+    }
+    .back-3 {
+      background-position: bottom 1px right -100px;
+      height: 300px;
+      margin-bottom: 240px;
+    }
+    .product {
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-bottom: 72px;
+    }
+    .product-h3 {
+      font-size: 22px;
+    }
+    .product-h4 {
+      font-size: 18px;
+    }
+    .link {
+      margin-bottom: 24px;
+    }
+    .brand-story {
+      margin-bottom: 340px;
+      max-width: 100%;
+    }
+    .brand-story p {
+      font-size: 14px;
+    }
+    .brand-story-section {
+      margin-bottom: 160px;
+    }
+    .story-img-1 {
+      right: 0;
+      top: initial;
+      bottom: 100px;
+      width: 250px;
+    }
+    .story-img-2 {
+      left: 20px;
+      top: initial;
+      bottom: -120px;
+      width: 230px;
+    }
   }
 </style>
