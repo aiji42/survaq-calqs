@@ -9,8 +9,6 @@
   margin: 0;
   /* Remove default padding on everything */
   padding: 0;
-  /* Calc `em` based line height, bigger line height for smaller font size and smaller line height for bigger font size: https://kittygiraudel.com/2020/05/18/using-calc-to-figure-out-optimal-line-height/ */
-  line-height: calc(0.25rem + 1em + 0.25rem);
 }
 
 /* Use a more-intuitive box-sizing model on everything */
@@ -165,4 +163,16 @@ a:not([class]) {
 /* Disabled cursor for disabled buttons */
 :where(button, button[type], input[type="button"], input[type="submit"], input[type="reset"])[disabled] {
   cursor: not-allowed;
+}
+
+/* Original */
+* {
+  color: var(--black);
+}
+ul {
+  list-style-type: none;
+}
+a {
+  color: var(--black);
+  text-decoration: none;
 }
