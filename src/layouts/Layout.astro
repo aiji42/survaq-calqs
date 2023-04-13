@@ -18,6 +18,12 @@ const { title, description } = Astro.props
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <script
+      is:inline
+      type="text/javascript"
+      src="//typesquare.com/3/tsst/script/ja/typesquare.js?64382a85f2044775876b726aac1e02e5"
+      charset="utf-8"
+    ></script>
   </head>
   <body>
     <slot />
@@ -32,7 +38,8 @@ const { title, description } = Astro.props
         --gray300: #cacaca;
       }
       html {
-        font-family: 'Avenir Next', Verdana, '游ゴシック体', YuGothic, '游ゴシック', 'Yu Gothic', sans-serif;
+        font-family: 'Avenir Next', Verdana, '游ゴシック体', YuGothic, '游ゴシック', 'Yu Gothic', 'Yu Gothic Pr6N R',
+          'Hiragino Kaku Gothic ProN', sans-serif;
         font-weight: 500;
       }
       code {
