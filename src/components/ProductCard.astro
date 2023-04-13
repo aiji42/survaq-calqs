@@ -30,6 +30,8 @@ const { image, title, price, code } = Astro.props
     border-radius: 10px;
     margin-bottom: 16px;
     overflow: hidden;
+    position: relative;
+    z-index: 1;
   }
   .img {
     width: 100%;
@@ -41,17 +43,18 @@ const { image, title, price, code } = Astro.props
   }
   .h2 {
     font-size: 20px;
-    letter-spacing: 6px;
-    margin-bottom: 16px;
+    letter-spacing: 4px;
+    margin-bottom: 8px;
     line-height: 2;
   }
   .price {
     font-size: 20px;
     font-weight: 300;
+    letter-spacing: 1px;
   }
   @media (max-width: 768px) {
-    .h2 {
-      margin-bottom: 8px;
+    .price {
+      font-weight: 500;
     }
   }
 </style>
