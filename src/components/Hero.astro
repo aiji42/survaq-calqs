@@ -4,8 +4,10 @@ import Logo from '../components/Logo.astro'
 
 <section class="hero">
   <video class="hero-img" muted loop autoplay playsinline>
-    <source src="/top/calqs_movie.webm" type="video/webm" />
-    <source src="/top/calqs_movie.mp4" type="video/mp4" />
+    <source src="/top/calqs_pc_short.webm" type="video/webm" />
+    <source src="/top/calqs_pc_short.mp4" type="video/mp4" />
+    <source src="/top/calqs_sp_short.webm" type="video/webm" media="(max-width: 768px)" />
+    <source src="/top/calqs_sp_short.mp4" type="video/mp4" media="(max-width: 768px)" />
   </video>
   <h1 class="hero-logo"><Logo /></h1>
   <a class="header-link header-link-back" href="/products"><span>PRODUCTS</span></a>
