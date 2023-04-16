@@ -110,14 +110,14 @@ const wishes = [
           多くのお客様から喜びの声をたくさん頂いています。<br />
           皆様の明るい未来を願っています。
         </p>
-      </div>
-      <div class="story-img-1">
-        <SlideAppearWrapper client:idle>
-          <img src="/top/story_1.png" loading="lazy" alt="" class="" />
-        </SlideAppearWrapper>
-      </div>
-      <div class="story-img-2">
-        <SlideAppearWrapper client:idle><img src="/top/story_2.png" loading="lazy" alt="" /></SlideAppearWrapper>
+        <div class="story-img-1">
+          <SlideAppearWrapper client:idle>
+            <img src="/top/story_1.png" loading="lazy" alt="" class="" />
+          </SlideAppearWrapper>
+        </div>
+        <div class="story-img-2">
+          <SlideAppearWrapper client:idle><img src="/top/story_2.png" loading="lazy" alt="" /></SlideAppearWrapper>
+        </div>
       </div>
     </section>
   </main>
@@ -324,29 +324,40 @@ const wishes = [
     transform: scale(1, 1);
   }
   .brand-story {
-    max-width: 50%;
+    max-width: 1200px;
+    margin: auto;
+    position: relative;
   }
   .brand-story p {
     margin-bottom: 24px;
   }
   .story-img-1 {
     position: absolute;
-    right: 0;
-    top: -50px;
-    border-radius: 10px 0 0 10px;
+    right: -120px;
+    top: -300px;
+    border-radius: 10px;
     overflow: hidden;
     width: 500px;
   }
   .story-img-2 {
     position: absolute;
-    right: 20%;
-    top: 550px;
+    right: 10%;
+    top: 260px;
     border-radius: 10px;
     overflow: hidden;
     width: 300px;
   }
   .sp {
     display: none;
+  }
+  @media (max-width: 1200px) {
+    .story-img-1 {
+      border-radius: 10px 0 0 10px;
+      width: 400px;
+    }
+    .story-img-2 {
+      right: 0;
+    }
   }
   @media (max-width: 660px) {
     .sp {
@@ -440,15 +451,16 @@ const wishes = [
       margin-bottom: 160px;
     }
     .story-img-1 {
-      right: 0;
+      right: -32px;
       top: initial;
-      bottom: 100px;
-      width: 250px;
+      bottom: -240px;
+      width: 270px;
+      height: 200px;
     }
     .story-img-2 {
-      left: 20px;
+      left: 0px;
       top: initial;
-      bottom: -120px;
+      bottom: -480px;
       width: 230px;
     }
   }
