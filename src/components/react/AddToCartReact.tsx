@@ -42,7 +42,7 @@ const AddToCartReact = ({
   productSchedule: Schedule
   productVariants: Variant[]
 }) => {
-  const { schedule, handleVariant } = useSchedule(productSchedule)
+  const { schedule, handleVariant, variant: selectedVariant } = useSchedule(productSchedule)
 
   const buyButtonLoaded = useRef(false)
   useEffect(() => {
@@ -61,6 +61,10 @@ const AddToCartReact = ({
       {
         key: '_source',
         value: `${location.origin}${location.pathname}`,
+      },
+      {
+        key: '_skus',
+        value: JSON.stringify(selectedVariant?.skus.map((sku) => sku.code) ?? []),
       },
       {
         key: '配送予定',
