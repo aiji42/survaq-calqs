@@ -7,7 +7,7 @@ type FadeInWrapper = {
 }
 
 export const FadeInWrapper: FC<FadeInWrapper> = (props) => {
-  const { ref, inView } = useInView({ triggerOnce: true })
+  const { ref, inView } = useInView({ triggerOnce: true, rootMargin: '-100px' })
   return (
     <div ref={ref} className={inView ? styles.visible : styles.fadeInContent}>
       {props.children}
