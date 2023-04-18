@@ -12,12 +12,12 @@ const wishes = [
   {
     title: '緊張をなくしたい',
     description:
-      '現代人の多くが悩んでいる「コリ（肩こり、首こり、腰痛等）」の原因の一つである「緊張」。筋肉の緊張も精神の緊張もカラダにコリを与えます。カラダが最もリラックスできる環境をサポートします。',
+      '現代人の多くが悩んでいる「コリ（肩こり、首こり、腰痛等）」の原因の一つである「緊張」。筋肉の緊張も精神の緊張もカラダにコリを与えます。\nカラダが最もリラックスできる環境をサポートします。',
   },
   {
     title: '冷えをなくしたい',
     description:
-      '「冷えは万病のもと」と言われ、古来よりカラダを温める治療法は数多く存在しています。特に高度な発展を遂げた現代において、狩猟時代と比べ筋肉や体温調整機能は衰えています。冷えた体に、優しく心地よい温もりを与えます。',
+      '「冷えは万病のもと」と言われ、古来よりカラダを温める治療法は数多く存在しています。特に高度な発展を遂げた現代において、狩猟時代と比べ筋肉や体温調整機能は衰えています。冷えたカラダに、優しく心地よい温もりを与えます。',
   },
   {
     title: 'ストレスをなくしたい',
@@ -135,7 +135,7 @@ const wishes = [
     justify-content: center;
     max-width: 1200px;
     position: relative;
-    padding: 88px 40px 72px;
+    padding: 120px 40px 104px;
     margin: auto;
   }
   .concept-back {
@@ -186,7 +186,7 @@ const wishes = [
   }
 
   .wish-section {
-    padding: 40px 120px;
+    padding: 64px 120px;
     margin: 0 -120px;
   }
   .wish-inner {
@@ -199,11 +199,13 @@ const wishes = [
   }
   .wish-content {
     background-color: var(--white);
-    padding: 32px 48px 38px;
-    width: 376px;
+    padding: 32px 40px 38px;
+    width: 360px;
     border-radius: 8px;
     display: grid;
-    gap: 8px;
+    gap: 16px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
   }
   .wish-h3 {
     font-size: 24px;
@@ -221,6 +223,7 @@ const wishes = [
     background-image: url('/top/wish_1.png');
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: bottom;
   }
   .back-2 {
     background-image: url('/top/wish_2.png');
@@ -231,6 +234,7 @@ const wishes = [
     background-image: url('/top/wish_3.png');
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: bottom;
   }
 
   .product {
@@ -419,7 +423,7 @@ const wishes = [
     .back-2 {
       background-position: bottom 1px left -100px;
       height: 300px;
-      margin-bottom: 240px;
+      margin-bottom: 270px;
     }
     .back-3 {
       background-position: bottom 1px right -100px;
