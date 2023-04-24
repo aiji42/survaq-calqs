@@ -1,5 +1,4 @@
 ---
-import Logo from '../components/Logo.astro'
 ---
 
 <section class="hero">
@@ -9,7 +8,9 @@ import Logo from '../components/Logo.astro'
     <source src="/top/calqs_sp_short.webm" type="video/webm" media="(max-width: 768px)" />
     <source src="/top/calqs_sp_short.mp4" type="video/mp4" media="(max-width: 768px)" />
   </video>
-  <h1 class="hero-logo"><Logo /></h1>
+  <h1 class="hero-logo">
+    <img src="/top/logo_white.svg" alt="CALQS" class="fadeIn" />
+  </h1>
   <a class="header-link header-link-back" href="/products"><span>PRODUCTS</span></a>
   <span class="hero-scroll"><span>Scroll</span></span>
 </section>
@@ -27,6 +28,23 @@ import Logo from '../components/Logo.astro'
     top: 50%;
     transform: translateY(-50%);
     left: 6%;
+  }
+  .fadeIn {
+    opacity: 0;
+    animation-name: fadeUpAnime;
+    animation-duration: 1.7s;
+    animation-fill-mode: forwards;
+    animation-delay: 5s;
+  }
+  @keyframes fadeUpAnime {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
   .header-link {
     position: absolute;
