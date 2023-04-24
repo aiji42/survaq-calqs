@@ -1,6 +1,7 @@
 ---
 import Footer from '../components/Footer.astro'
 import Hero from '../components/Hero.astro'
+import Loading from '../components/Loading.astro'
 import { ConceptText } from '../components/react/ConceptText'
 import { FadeInWrapper } from '../components/react/FadeInWrapper'
 import { SlideAppearWrapper } from '../components/react/SlideAppearWrapper'
@@ -122,6 +123,7 @@ const wishes = [
     </section>
   </main>
   <Footer isLight />
+  <Loading />
 </Layout>
 
 <style>
@@ -163,7 +165,7 @@ const wishes = [
   }
   .h2 {
     font-size: 20px;
-    font-weight: 500;
+    font-weight: 400;
     letter-spacing: 6px;
     line-height: 2;
     margin-bottom: 64px;
@@ -184,7 +186,6 @@ const wishes = [
     display: block;
     letter-spacing: 2px;
   }
-
   .wish-section {
     padding: 64px 120px;
     margin: 0 -120px;
@@ -209,7 +210,7 @@ const wishes = [
   }
   .wish-h3 {
     font-size: 24px;
-    font-weight: 500;
+    font-weight: 400;
     letter-spacing: 4px;
     line-height: 2;
   }
@@ -247,13 +248,13 @@ const wishes = [
   }
   .product-h3 {
     font-size: 24px;
-    font-weight: bold;
+    font-weight: 600;
     letter-spacing: 6px;
     line-height: 2;
   }
   .product-h4 {
     font-size: 20px;
-    font-weight: 500;
+    font-weight: 400;
     letter-spacing: 6px;
     line-height: 2;
   }
