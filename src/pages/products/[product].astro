@@ -28,7 +28,9 @@ const accessToken = import.meta.env.STORE_FRONT_ACCESS_TOKEN ?? ''
       </div>
     </div>
     <p class="caution">
-      ※首と肩がホッとする枕は株式会社SurvaQの販売する商品です。「カートに追加」「購入手続きへ進む」をクリックするとSurvaQ公式ショップの購入ページへ遷移いたします。
+      ※{
+        product.title
+      }は株式会社サバキューの販売する商品です。「カートに追加」「購入手続きへ進む」をクリックするとSurvaQ公式ショップの購入ページへ遷移いたします。
     </p>
   </section>
   <Footer />
@@ -53,7 +55,7 @@ const accessToken = import.meta.env.STORE_FRONT_ACCESS_TOKEN ?? ''
   .h1 {
     font-size: 32px;
     letter-spacing: 6px;
-    font-weight: 600;
+    font-weight: 700;
   }
   .h2 {
     font-size: 20px;
@@ -63,7 +65,7 @@ const accessToken = import.meta.env.STORE_FRONT_ACCESS_TOKEN ?? ''
     margin-top: 16px;
   }
   .description {
-    font-size: 14px;
+    font-size: 16px;
     letter-spacing: 2px;
     line-height: 2;
     margin-top: 16px;
@@ -75,7 +77,7 @@ const accessToken = import.meta.env.STORE_FRONT_ACCESS_TOKEN ?? ''
     font-size: 50px;
   }
   .caution {
-    font-size: 12px;
+    font-size: 14px;
     letter-spacing: 2px;
   }
   @media (max-width: 768px) {
@@ -92,7 +94,7 @@ const accessToken = import.meta.env.STORE_FRONT_ACCESS_TOKEN ?? ''
       grid-row-end: 3;
     }
     .h1 {
-      font-size: 20px;
+      font-size: 22px;
       letter-spacing: 4px;
     }
     .h2 {
@@ -101,6 +103,7 @@ const accessToken = import.meta.env.STORE_FRONT_ACCESS_TOKEN ?? ''
       letter-spacing: 2px;
     }
     .description {
+      font-size: 14px;
       margin-top: 16px;
     }
   }

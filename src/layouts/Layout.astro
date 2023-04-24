@@ -7,6 +7,7 @@ export interface Props {
 }
 
 const { title, description } = Astro.props
+const socialImageURL = new URL('/ogp.png', Astro.url)
 ---
 
 <!DOCTYPE html>
@@ -15,6 +16,7 @@ const { title, description } = Astro.props
     <GTM />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
+    <meta property="og:image" content={socialImageURL} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -44,14 +46,14 @@ const { title, description } = Astro.props
       @font-face {
         font-family: 'Zen Kaku Gothic New';
         src: url('/fonts/ZenKakuGothicNew-Regular.woff') format('woff');
-        font-weight: normal;
+        font-weight: 400;
         font-style: normal;
         font-display: swap;
       }
       @font-face {
         font-family: 'Zen Kaku Gothic New';
-        src: url('/fonts/ZenKakuGothicNew-Medium.woff') format('woff');
-        font-weight: 500;
+        src: url('/fonts/ZenKakuGothicNew-Bold.woff') format('woff');
+        font-weight: 700;
         font-style: normal;
         font-display: swap;
       }
