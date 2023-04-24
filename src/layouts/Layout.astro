@@ -38,14 +38,22 @@ const { title, description } = Astro.props
         --gray300: #cacaca;
       }
       html {
-        font-family: 'Avenir Next', Verdana, '游ゴシック体', YuGothic, '游ゴシック', 'Yu Gothic', '游ゴシック体 Pr6N M',
-          'Yu Gothic Pr6N M', '游ゴシック Pr6N M', 'YuGothic Pr6N M', 'メイリオ', 'Hiragino Kaku Gothic ProN',
-          sans-serif;
-        font-weight: 500;
+        font-family: 'Avenir Next', Verdana, 'Zen Kaku Gothic New', '游ゴシック体', YuGothic, '游ゴシック', 'Yu Gothic',
+          'メイリオ', 'Hiragino Kaku Gothic ProN', sans-serif;
       }
-      code {
-        font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono,
-          Courier New, monospace;
+      @font-face {
+        font-family: 'Zen Kaku Gothic New';
+        src: url('/fonts/ZenKakuGothicNew-Regular.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Zen Kaku Gothic New';
+        src: url('/fonts/ZenKakuGothicNew-Medium.woff') format('woff');
+        font-weight: 500;
+        font-style: normal;
+        font-display: swap;
       }
     </style>
   </body>
