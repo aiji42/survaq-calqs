@@ -1,9 +1,9 @@
 ---
 import Footer from '../components/Footer.astro'
-import Hero from '../components/Hero.astro'
 import Loading from '../components/Loading.astro'
 import { ConceptText } from '../components/react/ConceptText'
 import { FadeInWrapper } from '../components/react/FadeInWrapper'
+import { Hero } from '../components/react/Hero'
 import { SlideAppearWrapper } from '../components/react/SlideAppearWrapper'
 import { products } from '../constants/products'
 import { topPage } from '../constants/topPage'
@@ -30,7 +30,7 @@ const wishes = [
 
 <Layout {...topPage.pageMeta}>
   <main>
-    <Hero />
+    <Hero client:load />
     <section class="concept">
       <div class="concept-inner">
         <div class="concept-back">
