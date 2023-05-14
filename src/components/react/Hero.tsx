@@ -8,10 +8,10 @@ export const Hero = () => {
   return (
     <section className={styles.root}>
       <video className={styles.img} poster="/top/calqs_top.png" muted loop playsInline ref={videoRef}>
-        <source src="/top/calqs_pc_short.webm" type="video/webm" />
-        <source src="/top/calqs_pc_short.mp4" type="video/mp4" />
-        <source src="/top/calqs_sp_short.webm" type="video/webm" media="(max-width: 768px)" />
-        <source src="/top/calqs_sp_short.mp4" type="video/mp4" media="(max-width: 768px)" />
+        <source src="/top/calqs_pc.webm" type="video/webm" />
+        <source src="/top/calqs_pc.mp4" type="video/mp4" />
+        <source src="/top/calqs_sp.webm" type="video/webm" media="(max-width: 768px)" />
+        <source src="/top/calqs_sp.mp4" type="video/mp4" media="(max-width: 768px)" />
       </video>
       <h1 className={styles.logo}>
         <img src="/top/logo_white.svg" alt="CALQS" className={styles.fadeIn} />
