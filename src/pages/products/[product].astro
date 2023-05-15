@@ -18,7 +18,7 @@ const accessToken = import.meta.env.STORE_FRONT_ACCESS_TOKEN ?? ''
 <Layout {...product.pageMeta}>
   <Header />
   <section class="section">
-    <Carousel client:only="react" />
+    <Carousel client:only="react" images={product.thumbnail} title={product.title} />
     <div class="info">
       <h1 class="h1">{product.title}</h1>
       <h2 class="h2">{product.subtitle}</h2>
@@ -79,6 +79,12 @@ const accessToken = import.meta.env.STORE_FRONT_ACCESS_TOKEN ?? ''
   .caution {
     font-size: 14px;
     letter-spacing: 2px;
+  }
+  .carousel_img {
+    width: 100%;
+    height: 550px;
+    object-fit: cover;
+    border-radius: 10px;
   }
   @media (max-width: 768px) {
     .section {

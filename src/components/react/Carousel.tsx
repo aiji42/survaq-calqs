@@ -3,6 +3,8 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import styles from './Carousel.module.css'
 import './Carousel.css'
+import type { FC } from 'react'
+import type { products } from '../../constants/products'
 
 const settings = {
   dots: true,
@@ -13,22 +15,20 @@ const settings = {
   arrows: true,
 }
 
-export const Carousel = () => {
+type CarouselProps = {
+  images: (typeof products)[number]['thumbnail']
+  title: string
+}
+
+export const Carousel: FC<CarouselProps> = ({ images, title }) => {
   return (
     <div className={styles.carousel}>
       <Slider {...settings}>
-        <div>
-          <img src="/product/product_1.png" className={styles.carousel_img} />
-        </div>
-        <div>
-          <img src="/product/product_2.png" className={styles.carousel_img} />
-        </div>
-        <div>
-          <img src="/product/product_1.png" className={styles.carousel_img} />
-        </div>
-        <div>
-          <img src="/product/product_2.png" className={styles.carousel_img} />
-        </div>
+        {images.map((image, index) => (
+          <div key={image}>
+            <img src={image} alt={title} className={styles.carousel_img} loading={index > 0 ? 'lazy' : 'eager'} />
+          </div>
+        ))}
       </Slider>
     </div>
   )
