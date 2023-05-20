@@ -1,4 +1,4 @@
-import Slider from 'react-slick'
+import Slider, { Settings } from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import styles from './Carousel.module.css'
@@ -6,11 +6,11 @@ import './Carousel.css'
 import type { FC } from 'react'
 import type { products } from '../../constants/products'
 
-const settings = {
+const settings: Settings = {
   dots: true,
   infinite: true,
   speed: 500,
-  draggable: false,
+  swipe: false,
   slidesToShow: 1,
   slidesToScroll: 1,
 }
