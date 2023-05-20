@@ -10,9 +10,9 @@ const settings = {
   dots: true,
   infinite: true,
   speed: 500,
+  draggable: false,
   slidesToShow: 1,
   slidesToScroll: 1,
-  swipeToSlide: true,
 }
 
 type CarouselProps = {
