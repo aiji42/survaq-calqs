@@ -2,7 +2,7 @@ export const products = [
   {
     title: '首と肩がホッとする枕',
     code: 'neckwarmpillow',
-    price: 10000,
+    price: 14800,
     image: '/top/product_1.png',
     subtitle: '就寝前15分間を『心が温まる時間』に',
     description:
@@ -19,7 +19,7 @@ export const products = [
   {
     title: '首と肩のことだけを考えたダブル枕',
     code: 'doublepillow',
-    price: 9999,
+    price: 9800,
     image: '/top/product_2.png',
     subtitle: '常識に縛られず、カラダの負担を最小限に',
     description:
@@ -37,7 +37,7 @@ export const products = [
   {
     title: '美肌まくら Furez～フレズ～',
     code: 'furez',
-    price: 12000,
+    price: 9800,
     image: '/top/product_3.png',
     subtitle: '寝ている間も素肌に優しく',
     description:
@@ -55,7 +55,7 @@ export const products = [
   {
     title: '腰がホッとする枕',
     code: 'lumberwarmpillow',
-    price: 8000,
+    price: 10800,
     image: '/top/product_4.png',
     subtitle: '寝ている間も素肌に優しく',
     description:
