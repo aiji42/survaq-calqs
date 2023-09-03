@@ -64,7 +64,7 @@ const AddToCartReact = ({
       },
       {
         key: '_skus',
-        value: JSON.stringify(selectedVariant?.skus.map((sku) => sku.code) ?? []),
+        value: JSON.stringify(selectedVariant?.baseSKUs.map(({ code }) => code) ?? []),
       },
       {
         key: '配送予定',

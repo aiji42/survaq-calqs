@@ -4,12 +4,12 @@ import type { Schedule, Variant } from '../../../libs/getVariantsData'
 export const useSchedule = (baseSchedule: Schedule) => {
   const [variant, handleVariant] = useState<Variant | undefined>(undefined)
 
-  const schedule = latest([baseSchedule, variant?.schedule ?? null])
+  const schedule = latest([baseSchedule, variant?.defaultSchedule ?? null])
 
   return { variant, schedule, handleVariant }
 }
 
-type DeliverySchedule = Exclude<Variant['schedule'], null>
+type DeliverySchedule = Exclude<Variant['defaultSchedule'], null>
 
 const latest = (schedules: Array<Schedule | DeliverySchedule | null>): DeliverySchedule => {
   return schedules

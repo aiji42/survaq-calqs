@@ -8,18 +8,21 @@ export type Schedule = {
   subText: string
 }
 
+type SKU = {
+  code: string
+  name: string
+  subName: string
+  schedule: Omit<Schedule, 'texts'> | null
+}
+
 export type Variant = {
   variantId: string
   variantName: string
   skuLabel: string | null
-  skus: {
-    code: string
-    name: string
-    subName: string
-    schedule: Omit<Schedule, 'texts'> | null
-  }[]
+  baseSKUs: SKU[]
+  selectableSKUs: SKU[]
   skuSelectable: number
-  schedule: Omit<Schedule, 'texts'> | null
+  defaultSchedule: Omit<Schedule, 'texts'> | null
 }
 
 export type ProductData = {
